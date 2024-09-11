@@ -9,25 +9,19 @@ import { ThemeProvider } from "./utilitary/ThemeProvider/ThemeProvider";
 import { ToastProvider } from "./utilitary/ToastProvider/ToastProvider";
 
 interface AppSettings {
-    sample: string
+  sample: string;
 }
 
 export const AppSettings = createContext({} as AppSettings);
 
 export const App = () => {
-
-  const appSettings = useMemo<AppSettings>(
-    () => ({sample: 'sample'}),
-    [],
-  );
+  const appSettings = useMemo<AppSettings>(() => ({ sample: "sample" }), []);
 
   return (
     <AppSettings.Provider value={appSettings}>
       <CssBaseline />
       <ThemeProvider>
-        <ToastProvider>
-            pew
-        </ToastProvider>
+        <ToastProvider>pew</ToastProvider>
       </ThemeProvider>
     </AppSettings.Provider>
   );
