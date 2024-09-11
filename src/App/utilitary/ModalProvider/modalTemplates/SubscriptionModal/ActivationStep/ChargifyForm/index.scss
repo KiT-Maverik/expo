@@ -1,0 +1,17 @@
+@import 'scss/colors';
+
+.ActivationStep #chargify-form {
+    margin-top: 16px;
+
+    .CVVHelpPopper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-blue;
+    }
+
+    .ChargifyCreditCardForm .MuiGrid-item iframe {
+        width: 100% !important;
+        height: 80px !important;
+    }
+}

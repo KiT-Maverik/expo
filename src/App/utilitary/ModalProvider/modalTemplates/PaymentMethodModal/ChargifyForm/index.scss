@@ -1,0 +1,18 @@
+@import 'scss/colors';
+
+#user-chargify-form {
+    .MuiButton-root {
+        margin-top: 8px;
+    }
+
+    .CVVHelpPopper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ChargifyCreditCardForm .MuiGrid-item iframe {
+        width: 100% !important;
+        height: 93px !important;
+    }
+}
