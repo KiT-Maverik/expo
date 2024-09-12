@@ -1,15 +1,41 @@
 import style from "./Layout.styles";
-import React, { ReactNode } from "react";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+import MenuIcon from "@mui/icons-material/Menu";
 
-export const Layout = ({ children }: LayoutProps) => {
+import {
+  AppBar,
+  Box,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+
+export const Layout = () => {
   return (
     <>
-      layout
-      {children}
+      <AppBar position="static">
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            News
+          </Typography>
+          <Button color="inherit">Login</Button>
+        </Toolbar>
+      </AppBar>
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        {<Outlet />}
+      </Box>
     </>
   );
 };
