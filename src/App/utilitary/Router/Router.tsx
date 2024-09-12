@@ -6,11 +6,11 @@ import { HomePage } from "design/pages";
 export const Router = () => {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path={route.home} element={<HomePage />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path={route.home} element={<Layout />}>
+          <Route index element={<HomePage />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };
