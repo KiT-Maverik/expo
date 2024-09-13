@@ -25,20 +25,20 @@ type ModalPropsVariants =
     | UserId
     | undefined
 
-export interface ModalControllerState<T extends ModalPropsVariants> {
+export interface ModalProviderState<T extends ModalPropsVariants> {
     type: Modals | ModalType
     props: T
 }
 
 export type UserId = Pick<AccountInfo, 'id'>
 
-const initialState: ModalControllerState<ModalPropsVariants> = {
+const initialState: ModalProviderState<ModalPropsVariants> = {
     type: 'Closed',
     props: undefined,
 }
 
 export const modalProviderSlice = createSlice({
-    name: 'modal controller',
+    name: 'modal provider',
     initialState,
     reducers: {
         openModal: (_, action: PayloadAction<{ type: ModalsWithoutProps }>) => {
@@ -64,6 +64,6 @@ export const {
     closeModal,
 } = modalProviderSlice.actions
 
-export const selectModalControllerState = (state: RootState) => state.modalController
+export const selectModalProviderState = (state: RootState) => state.modalController
 
-export const modalController = modalProviderSlice.reducer
+export const modalProvider = modalProviderSlice.reducer
