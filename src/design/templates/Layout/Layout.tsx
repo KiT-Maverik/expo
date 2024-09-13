@@ -1,9 +1,6 @@
-import style from "./Layout.styles";
 import React from "react";
 import { Outlet } from "react-router-dom";
-
 import MenuIcon from "@mui/icons-material/Menu";
-
 import {
   AppBar,
   Box,
@@ -13,9 +10,14 @@ import {
   Typography,
 } from "@mui/material";
 
+import { BannerProvider } from "App";
+
+import style from "./Layout.styles";
+
 export const Layout = () => {
   return (
     <>
+      <BannerProvider />
       <AppBar position="static">
         <Toolbar>
           <IconButton
