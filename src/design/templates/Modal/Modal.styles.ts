@@ -23,15 +23,21 @@ const overlay: { [key in ModalLayout]: SxProps<Theme> } = {
   },
 } as const;
 
-const modalLayoutMixin: SxProps<Theme> = {
-  width: 1,
-  minHeight: 220,
-  outline: "none",
-  gap: 5,
-  overflow: "auto",
-  backgroundColor: (theme) => theme.palette.background.paper,
-  p: 6,
-} as const;
+const modalLayoutMixin: SxProps<Theme> = (theme) =>
+  ({
+    width: 1,
+    minHeight: 220,
+    outline: "none",
+    gap: 5,
+    overflow: "auto",
+    backgroundColor: (theme) => theme.palette.background.paper,
+    p: 6,
+    mx: (theme) => theme.mixins.contentSpacingX.sm,
+
+    [theme.breakpoints.up("tablet")]: {
+      mx: (theme) => theme.mixins.contentSpacingX.lg,
+    },
+  }) as const;
 
 const modal: {
   actions: SxProps<Theme>;
@@ -60,18 +66,16 @@ const modal: {
   layout: {
     window: (theme: Theme) => ({
       ...modalLayoutMixin,
-      maxHeight: (theme) => `calc(100vh - ${theme.spacing(6)})`,
-      mx: 6,
+      maxHeight: `calc(100vh - ${theme.spacing(6)})`,
       borderRadius: 5,
 
       [theme.breakpoints.only("mobile")]: {
-        maxHeight: (theme) => `calc(100vh - ${theme.spacing(16)})`,
+        maxHeight: `calc(100vh - ${theme.spacing(16)})`,
       },
     }),
     fullscreen: {
       ...modalLayoutMixin,
       maxWidth: (theme) => theme.breakpoints.values.desktop,
-      margin: (theme) => `0 ${theme.spacing(6)}`,
     },
   },
 } as const;
