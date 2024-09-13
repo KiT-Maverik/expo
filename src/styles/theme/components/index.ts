@@ -1,3 +1,3 @@
 export * from "./MuiAlert";
 export * from "./MuiAlertTitle";
-export * from "./MuiToolbar.ts";
+export * from "./MuiToolbar";

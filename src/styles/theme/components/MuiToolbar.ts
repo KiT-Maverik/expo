@@ -5,6 +5,9 @@ export const MuiToolbar: Components<Omit<Theme, "components">>["MuiToolbar"] = {
     return {
       root: ({ theme: { breakpoints, mixins, spacing } }) => ({
         gap: spacing(3),
+        alignSelf: "center",
+        width: "100%",
+        maxWidth: breakpoints.values.desktop,
 
         paddingLeft: spacing(mixins.contentSpacingX.sm),
         paddingRight: spacing(mixins.contentSpacingX.sm),
