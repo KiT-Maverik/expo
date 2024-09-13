@@ -1,17 +1,25 @@
 import { SxProps } from "@mui/material";
 import { Theme } from "@mui/material/styles";
+import { modalClasses } from "@mui/material";
 
 import { ModalLayout } from "./Modal.tsx";
 
+const modalOverlayMixin: SxProps<Theme> = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+} as const;
+
 const overlay: { [key in ModalLayout]: SxProps<Theme> } = {
   window: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    direction: "column",
+    ...modalOverlayMixin,
   },
   fullscreen: {
-    backgroundColor: (theme) => theme.palette.background.paper,
+    ...modalOverlayMixin,
+
+    [`.${modalClasses.backdrop}`]: {
+      backgroundColor: (theme) => theme.palette.background.paper,
+    },
   },
 } as const;
 
@@ -57,12 +65,12 @@ const modal: {
       borderRadius: 5,
 
       [theme.breakpoints.only("mobile")]: {
-        ...modalLayoutMixin,
         maxHeight: (theme) => `calc(100vh - ${theme.spacing(16)})`,
       },
     }),
     fullscreen: {
-      maxWidth: "100vw",
+      ...modalLayoutMixin,
+      maxWidth: (theme) => theme.breakpoints.values.desktop,
       margin: (theme) => `0 ${theme.spacing(6)}`,
     },
   },
