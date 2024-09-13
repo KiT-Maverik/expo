@@ -33,7 +33,7 @@ export const modalProviderSlice = createSlice({
     },
     openComplexModal: (_, action: PayloadAction<ComplexModalProps>) => {
       return {
-        type: "Withdraw client invitation",
+        type: "Complex modal",
         props: action.payload,
       };
     },
@@ -41,7 +41,7 @@ export const modalProviderSlice = createSlice({
   },
 });
 
-export const { openModal, closeModal } = modalProviderSlice.actions;
+export const { openComplexModal, openModal, closeModal } = modalProviderSlice.actions;
 
 export const selectModalProviderState = (state: RootState) =>
   state.modalController;
