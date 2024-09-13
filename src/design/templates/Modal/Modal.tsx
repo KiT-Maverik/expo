@@ -91,11 +91,7 @@ const Header = (props: ModalHeaderProps) => {
     if (!onClose) return null;
 
     return (
-      <IconButton
-        sx={{ mt: -4, mr: -2 }}
-        data-testid={testId.header.closeButton}
-        onClick={onClose}
-      >
+      <IconButton data-testid={testId.header.closeButton} onClick={onClose}>
         <CloseIcon />
       </IconButton>
     );
