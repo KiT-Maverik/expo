@@ -1,69 +1,49 @@
-import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-import { type RootState } from 'App/App.store.ts'
-import {
-    AgencyLockedFeaturesModalProps,
-    ConversionConfirmDeleteProps,
-    EditClientModalProps,
-} from 'design/templates/Modal/index'
-import { AccountInfo } from 'api/contracts/agency/entities/common'
-import { ModalType } from 'design/templates/Modal/ModalTypes/types'
+import { type RootState } from "App/App.store.ts";
+import { ComplexModalProps } from "design/templates";
 
-type Modals =
-    | 'Static modal'
-    | 'Modal with Props'
+type Modal = "Simple modal" | "Complex modal" | "Closed";
 
-type ModalsWithoutProps = Exclude<
-    Modals,
-    | 'Static modal'
->
+type ModalWithoutProps = Exclude<Modal, "Simple modal" | "Closed">;
 
-type ModalPropsVariants =
-    | AgencyLockedFeaturesModalProps
-    | EditClientModalProps
-    | ConversionConfirmDeleteProps
-    | UserId
-    | undefined
+type ModalPropsVariants = ComplexModalProps | undefined;
 
 export interface ModalProviderState<T extends ModalPropsVariants> {
-    type: Modals | ModalType
-    props: T
+  type: Modal;
+  props: T;
 }
-
-export type UserId = Pick<AccountInfo, 'id'>
 
 const initialState: ModalProviderState<ModalPropsVariants> = {
-    type: 'Closed',
-    props: undefined,
-}
+  type: "Closed",
+  props: undefined,
+};
 
 export const modalProviderSlice = createSlice({
-    name: 'modal provider',
-    initialState,
-    reducers: {
-        openModal: (_, action: PayloadAction<{ type: ModalsWithoutProps }>) => {
-            const { type } = action.payload
+  name: "modal provider",
+  initialState,
+  reducers: {
+    openModal: (_, action: PayloadAction<{ type: ModalWithoutProps }>) => {
+      const { type } = action.payload;
 
-            return {
-                type,
-                props: undefined,
-            }
-        },
-        openNoPropsModal: (_, action: PayloadAction<UserId>) => {
-            return {
-                type: 'Withdraw client invitation',
-                props: action.payload,
-            }
-        },
-        closeModal: () => initialState,
+      return {
+        type,
+        props: undefined,
+      };
     },
-})
+    openComplexModal: (_, action: PayloadAction<ComplexModalProps>) => {
+      return {
+        type: "Withdraw client invitation",
+        props: action.payload,
+      };
+    },
+    closeModal: () => initialState,
+  },
+});
 
-export const {
-    openModal,
-    closeModal,
-} = modalProviderSlice.actions
+export const { openModal, closeModal } = modalProviderSlice.actions;
 
-export const selectModalProviderState = (state: RootState) => state.modalController
+export const selectModalProviderState = (state: RootState) =>
+  state.modalController;
 
-export const modalProvider = modalProviderSlice.reducer
+export const modalProvider = modalProviderSlice.reducer;
