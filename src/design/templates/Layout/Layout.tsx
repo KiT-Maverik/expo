@@ -35,7 +35,7 @@ export const Layout = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Box component="main" sx={{ flexGrow: 1 }}>
+      <Box component="main" sx={{ flexGrow: 1, display: "grid" }}>
         {<Outlet />}
       </Box>
     </>
