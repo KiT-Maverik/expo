@@ -8,9 +8,6 @@ export const ModalProvider = () => {
   switch (type) {
     case "Simple modal":
       return <SimpleModal />;
-    // TODO: type issue. resolve
-    case "Illegal modal":
-      return <ComplexModal />;
     case "Complex modal":
       return <ComplexModal />;
   }

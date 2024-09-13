@@ -45,6 +45,6 @@ export const { openComplexModal, openModal, closeModal } =
   modalProviderSlice.actions;
 
 export const selectModalProviderState = (state: RootState) =>
-  state.modalController;
+  state.modalProvider;
 
 export const modalProvider = modalProviderSlice.reducer;
