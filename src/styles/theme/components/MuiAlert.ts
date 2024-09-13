@@ -36,7 +36,7 @@ export const MuiAlert: Components<Omit<Theme, "components">>["MuiAlert"] = {
       },
     };
 
-    const rootBannerStyles: CSSInterpolation = {
+    const bannerMixin: CSSInterpolation = {
       border: "none",
       borderRadius: 0,
       width: "100%",
@@ -44,7 +44,7 @@ export const MuiAlert: Components<Omit<Theme, "components">>["MuiAlert"] = {
 
     return {
       root: ({
-        theme: { breakpoints, palette, shape, spacing },
+        theme: { breakpoints, mixins, palette, shape, spacing },
         ownerState: { severity, variant, mode },
       }) => ({
         display: "grid",
@@ -67,7 +67,18 @@ export const MuiAlert: Components<Omit<Theme, "components">>["MuiAlert"] = {
             return colorSchema.background[severity as AlertColor];
         })(),
 
-        ...(mode === "banner" ? rootBannerStyles : {}),
+        ...(mode === "banner"
+          ? {
+              ...bannerMixin,
+              paddingLeft: spacing(mixins.contentSpacingX.sm),
+              paddingRight: spacing(mixins.contentSpacingX.sm),
+
+              [breakpoints.up("tablet")]: {
+                paddingLeft: spacing(mixins.contentSpacingX.lg),
+                paddingRight: spacing(mixins.contentSpacingX.lg),
+              },
+            }
+          : {}),
 
         [breakpoints.down("laptop")]: {
           gridTemplateColumns: "22px auto",

@@ -1,6 +1,5 @@
 import { PaletteColorOptions } from "@mui/material";
 import { ThemeShape } from "styles/theme/shape";
-import { CSSProperties, ReactNode } from "react";
 
 declare module "@mui/material/styles" {
   export interface Theme {
@@ -13,6 +12,13 @@ declare module "@mui/material/styles" {
 
   interface CommonColors {
     tertiaryOutlinedBorder?: string;
+  }
+
+  interface Mixins {
+    contentSpacingX: {
+      lg: number;
+      sm: number;
+    };
   }
 
   interface TypeBackground {
