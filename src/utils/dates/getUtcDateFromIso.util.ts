@@ -1,7 +1,7 @@
-import { addMinutes } from 'date-fns'
+import { addMinutes } from "date-fns";
 
 export const getUtcDateFromIso = (dateString: string) => {
-    const date = new Date(dateString)
-    const offset = date.getTimezoneOffset()
-    return addMinutes(date, offset)
-}
+  const date = new Date(dateString);
+  const offset = date.getTimezoneOffset();
+  return addMinutes(date, offset);
+};

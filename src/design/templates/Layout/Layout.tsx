@@ -59,7 +59,7 @@ export const Layout = () => {
       </AppBar>
       <Drawer
         PaperProps={{ sx: style.drawer.container(drawerVerticalOffset) }}
-        variant='persistent'
+        variant="persistent"
         anchor="left"
         open={showDrawer}
         onClose={() => dispatch(closeDrawer())}
