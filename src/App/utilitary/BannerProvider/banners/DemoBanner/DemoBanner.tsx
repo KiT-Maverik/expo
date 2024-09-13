@@ -1,4 +1,4 @@
-import { Alert, Button } from "@mui/material";
+import { Alert, AlertTitle, Button } from "@mui/material";
 import LogIcon from "@mui/icons-material/SmsFailedRounded";
 
 export const DemoBanner = () => {
@@ -17,6 +17,7 @@ export const DemoBanner = () => {
         </Button>
       }
     >
+      <AlertTitle>Demonstrational banner</AlertTitle>
       Lorem ipsum dolor sit amet.
     </Alert>
   );
