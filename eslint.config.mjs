@@ -13,25 +13,8 @@ export default [
   {
     languageOptions: { globals: globals.browser },
     rules: {
-      'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
-      'import/newline-after-import': ['error', { count: 1 }],
-      'import/no-duplicates': ['error', { 'prefer-inline': true }],
-      'import/order': [
-        'error',
-        {
-          groups: ['builtin', 'external', 'internal', 'type', 'parent', 'sibling', 'object', 'index'],
-          pathGroupsExcludedImportTypes: [],
-        },
-      ],
-      'todo-plz/ticket-ref': [
-        'error',
-        {
-          commentPattern: 'TODO:\\s\\[(T-[0-9]+[,\\s]*)+\\]',
-          description: 'Example: TODO: [T-123] Lorem ipsum dolor sit amet',
-        },
-      ],
       "react/react-in-jsx-scope": "off",
-      'react/prop-types': 'off',
+      "react/prop-types": "off",
     },
   },
 ];
