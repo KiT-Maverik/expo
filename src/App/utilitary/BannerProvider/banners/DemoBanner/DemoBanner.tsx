@@ -6,6 +6,7 @@ export const DemoBanner = () => {
     <Alert
       severity="info"
       variant="standard"
+      mode="banner"
       action={
         <Button
           variant="outlined"
