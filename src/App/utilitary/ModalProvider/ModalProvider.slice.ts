@@ -41,7 +41,8 @@ export const modalProviderSlice = createSlice({
   },
 });
 
-export const { openComplexModal, openModal, closeModal } = modalProviderSlice.actions;
+export const { openComplexModal, openModal, closeModal } =
+  modalProviderSlice.actions;
 
 export const selectModalProviderState = (state: RootState) =>
   state.modalController;
