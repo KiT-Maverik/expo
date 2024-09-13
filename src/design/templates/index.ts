@@ -1,4 +1,5 @@
 export * from "./Layout/Layout";
+export * from "./Page/Page";
 
 // Modals
 export * from "./Modal/Modal";
