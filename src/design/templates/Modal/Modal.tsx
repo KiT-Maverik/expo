@@ -11,8 +11,10 @@ import {
   StackProps,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import style from "./Modal.style";
+import style from "./Modal.styles.ts";
 import { ModalWidth, testId, modalWidthParams } from "./Modal.constants";
+
+export type ModalLayout = "window" | "fullscreen";
 
 /** Props for the Modal component. */
 interface ModalProps extends Omit<MuiModalProps, "children" | "width"> {
@@ -21,9 +23,9 @@ interface ModalProps extends Omit<MuiModalProps, "children" | "width"> {
   /** Callback fired when the component requests to be closed. */
   onClose(): void;
   /** Whether to show modal full width */
-  isFullscreen?: boolean;
-  stackProps?: StackProps;
+  layout?: ModalLayout;
   width?: ModalWidth;
+  ContentProps: StackProps;
 }
 
 /**
@@ -31,19 +33,18 @@ interface ModalProps extends Omit<MuiModalProps, "children" | "width"> {
  */
 export const Modal = ({
   children,
-  stackProps,
+  layout = "window",
   onClose,
   width = "md",
-  ...rest
+  ContentProps,
 }: ModalProps) => {
   return (
-    <MUIModal sx={style.background} onClose={onClose} {...rest}>
+    <MUIModal open sx={style.overlay[layout]} onClose={onClose}>
       <Stack
-        {...stackProps}
         maxWidth={modalWidthParams[width]}
-        sx={style.container}
-        gap={6}
+        sx={style.modal.layout[layout]}
         data-testid={testId.container}
+        {...ContentProps}
       >
         {children}
       </Stack>
