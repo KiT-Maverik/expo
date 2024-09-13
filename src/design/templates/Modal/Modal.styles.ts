@@ -15,6 +15,16 @@ const overlay: { [key in ModalLayout]: SxProps<Theme> } = {
   },
 } as const;
 
+const modalLayoutMixin: SxProps<Theme> = {
+  width: 1,
+  minHeight: 220,
+  outline: "none",
+  gap: 5,
+  overflow: "auto",
+  backgroundColor: (theme) => theme.palette.background.paper,
+  p: 6,
+} as const;
+
 const modal: {
   actions: SxProps<Theme>;
   body: SxProps<Theme>;
@@ -31,11 +41,6 @@ const modal: {
     flexGrow: 1,
     position: "relative",
     overflowY: "auto",
-    boxSizing: "border-box",
-    px: 6,
-    mx: -6,
-    py: "10px",
-    my: "-10px",
   },
   header: (hasTitle, hasNodeTitle) => ({
     display: "flex",
@@ -46,17 +51,13 @@ const modal: {
   }),
   layout: {
     window: (theme: Theme) => ({
-      width: 1,
-      minHeight: 220,
+      ...modalLayoutMixin,
       maxHeight: (theme) => `calc(100vh - ${theme.spacing(6)})`,
-      outline: "none",
-      overflow: "auto",
-      backgroundColor: (theme) => theme.palette.background.paper,
-      p: 6,
       mx: 6,
       borderRadius: 5,
 
       [theme.breakpoints.only("mobile")]: {
+        ...modalLayoutMixin,
         maxHeight: (theme) => `calc(100vh - ${theme.spacing(16)})`,
       },
     }),
