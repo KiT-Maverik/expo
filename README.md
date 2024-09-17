@@ -7,6 +7,7 @@ A collection of reusable components, utilities, and tools designed to streamline
 * Redux Toolkit
 * Material UI
 * Emotion
+* AI-powered testing
 
 # Scope
 ### Development utilities
