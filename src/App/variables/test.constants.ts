@@ -1,6 +1,6 @@
 /**
  * This object holds the standardized test suites names to maintain uniformity across the application.
- * It includes only generic test suite names, which are reusable across multiple test files.
+ * It includes only global test suite names, which are reusable across multiple test files.
  */
 export const testSuite = {
   contractValidation: "Contract validation",
@@ -23,7 +23,7 @@ export const testSuite = {
 
 /**
  * Common test names used across multiple test suites.
- * Generally used for executing generic verifications, like render check.
+ * Generally used for executing global verifications, like render check.
  */
 export const testName = {
   renderIsOk: "Render is OK",

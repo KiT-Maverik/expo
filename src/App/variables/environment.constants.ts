@@ -1,4 +1,4 @@
-export const projectName = "Expo | Utility components library";
+export const projectName = "Expo";
 
 export enum LANGUAGE {
   ENGLISH = "en",
