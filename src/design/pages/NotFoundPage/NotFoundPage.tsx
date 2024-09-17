@@ -1,5 +1,5 @@
 import ErrorIcon from "@mui/icons-material/ReportGmailerrorredRounded";
-import { Box, Button, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import { route } from "App";
