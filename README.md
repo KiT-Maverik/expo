@@ -15,11 +15,8 @@ A collection of reusable components, utilities, and tools designed to streamline
 ### Development utilities
 * Linter setup
 * TS config
-* Custom MUI theme
 * indexed db for state management?
-* Inline svg support
 * Utility types
-* Simplified import paths
 
 ### Utility pages
 * 404
@@ -44,6 +41,12 @@ A collection of reusable components, utilities, and tools designed to streamline
 * Logout
 * Password validator
 * Viewport parameters
+
+### Tweaks
+* Generic locales
+* Inline svg support
+* Simplified import paths
+* Custom MUI theme
 
 ### Utils
 * Converters
