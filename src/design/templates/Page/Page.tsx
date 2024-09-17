@@ -1,5 +1,5 @@
 import { Stack, Typography, StackProps, SxProps, Theme } from "@mui/material";
-import { ReactNode, Ref, useCallback } from "react";
+import { ReactNode, useCallback } from "react";
 import { Helmet } from "react-helmet";
 import { ErrorBoundary } from "react-error-boundary";
 
@@ -9,13 +9,11 @@ import { ErrorPage } from "design/pages";
 import style from "./Page.style";
 
 interface PageProps extends StackProps {
-  containerSx?: SxProps<Theme>;
   title?: string;
   children: ReactNode;
   header?: ReactNode;
   head?: ReactNode;
-  stackRef?: Ref<unknown>;
-  redesigned?: boolean;
+  containerStyle?: SxProps<Theme>;
 }
 
 /**
@@ -28,7 +26,13 @@ interface PageProps extends StackProps {
  *
  * Recommended for usage as a wrapper for page-level components
  */
-export const Page = ({ title, header, sx, children, head }: PageProps) => {
+export const Page = ({
+  title,
+  header,
+  containerStyle,
+  children,
+  head,
+}: PageProps) => {
   const renderHeader = useCallback(() => {
     if (header) {
       return header;
@@ -36,7 +40,7 @@ export const Page = ({ title, header, sx, children, head }: PageProps) => {
 
     if (title) {
       return (
-        <Typography variant="h4" component="h1" sx={style.title}>
+        <Typography variant="h4" component="h1">
           {title}
         </Typography>
       );
@@ -57,7 +61,14 @@ export const Page = ({ title, header, sx, children, head }: PageProps) => {
         )}
       </Helmet>
 
-      <Stack sx={style.container}>
+      <Stack
+        sx={[
+          style.container,
+          ...(Array.isArray(containerStyle)
+            ? containerStyle
+            : [containerStyle]),
+        ]}
+      >
         {renderHeader()}
         {children}
       </Stack>
