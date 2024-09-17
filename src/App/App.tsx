@@ -8,10 +8,10 @@ import { CssBaseline, GlobalStyles } from "@mui/material";
 
 import { globalStyles } from "styles";
 
-import { ThemeProvider } from "./utilitary/ThemeProvider/ThemeProvider";
-import { ToastProvider } from "./utilitary/ToastProvider/ToastProvider";
-import { ModalProvider } from "./utilitary/ModalProvider/ModalProvider.tsx";
-import { Router } from "./utilitary/Router/Router";
+import { ThemeProvider } from "./ThemeProvider/ThemeProvider";
+import { ToastProvider } from "./ToastProvider/ToastProvider";
+import { ModalProvider } from "./ModalProvider/ModalProvider.tsx";
+import { Router } from "./Router/Router";
 import { appStore } from "./App.store.ts";
 
 interface AppSettings {

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { route } from "constants";
-import { Layout } from "design/templates";
+import { Layout } from "../Layout/Layout";
 import { HomePage } from "design/pages";
 
 export const Router = () => {
