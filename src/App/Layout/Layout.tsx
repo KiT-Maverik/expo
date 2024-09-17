@@ -20,6 +20,7 @@ import {
   useAppDispatch,
   closeDrawer,
   openDrawer,
+  projectName,
 } from "App";
 
 import style from "./Layout.styles";
@@ -47,7 +48,7 @@ export const Layout = () => {
         >
           <MenuIcon />
           <Typography variant="h6" component="div" flexGrow={1}>
-            Expo
+            {projectName}
           </Typography>
         </ButtonBase>
       </Box>
