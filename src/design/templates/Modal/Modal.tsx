@@ -141,5 +141,3 @@ const Actions = (props: BoxProps) => {
 Modal.Header = Header;
 Modal.Body = Body;
 Modal.Actions = Actions;
-
-export default Modal;
