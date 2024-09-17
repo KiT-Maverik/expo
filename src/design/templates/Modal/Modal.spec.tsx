@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { MemoryRouter } from "react-router-dom";
-import { testName, testSuite } from "constants/test.constants";
+import { testName, testSuite } from "variables/test.variables";
 import { testId } from "./Modal.constants";
 import { Modal } from "./index";
 

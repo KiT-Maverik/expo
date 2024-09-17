@@ -7,7 +7,7 @@ export const BannerProvider = () => {
   const content = useMemo(() => {
     const result = [];
 
-    if (true) result.push(<DemoBanner />);
+    if (true) result.push(<DemoBanner key="demoBanner" />);
 
     return result;
   }, []);

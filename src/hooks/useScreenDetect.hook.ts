@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 // RESOURCES
-import { breakpoint } from "src/constants/layout.constants";
+import { breakpoint } from "src/variables/layout.variables";
 
 export function useScreenDetect() {
   const initialState = {

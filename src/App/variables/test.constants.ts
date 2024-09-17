@@ -3,6 +3,7 @@
  * It includes only generic test suite names, which are reusable across multiple test files.
  */
 export const testSuite = {
+  contractValidation: "Contract validation",
   healthCheck: "Health check",
   integration: "Integration",
   element: {
@@ -18,7 +19,7 @@ export const testSuite = {
   page: {
     agencyAccount: "Agency account page",
   },
-};
+} as const;
 
 /**
  * Common test names used across multiple test suites.
@@ -27,4 +28,4 @@ export const testSuite = {
 export const testName = {
   renderIsOk: "Render is OK",
   smoke: "Smoke test",
-};
+} as const;

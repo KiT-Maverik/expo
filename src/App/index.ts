@@ -4,10 +4,10 @@ export * from "./App.store";
 export * from "./App.slice";
 
 // Constants
-export * from "./constants/environment.constants";
-export * from "./constants/local-storage.constants.ts";
-export * from "./constants/routes.contants.ts";
-export * from "./constants/test.constants.ts";
+export * from "./variables/environment.constants";
+export * from "./variables/local-storage.constants.ts";
+export * from "./variables/routes.contants.ts";
+export * from "./variables/test.constants.ts";
 
 // Utilities
 export * from "./ModalProvider/ModalProvider.slice";
