@@ -6,6 +6,7 @@ export * from "./dates/getUtcDateFromIso.util.ts";
 
 // Helpers
 export * from "./helpers/parseJwt.util.ts";
+export * from "./helpers/changeLanguage.util.ts";
 
 // Numbers
 export * from "./numbers/prettifyNumber.util.ts";
