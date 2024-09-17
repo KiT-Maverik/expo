@@ -8,6 +8,8 @@ A collection of reusable components, utilities, and tools designed to streamline
 * Material UI
 * Emotion
 * AI-powered testing
+* i18n
+* Storybook
 
 # Scope
 ### Development utilities
