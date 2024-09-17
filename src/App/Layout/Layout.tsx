@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import {
   AppBar,
@@ -7,11 +6,12 @@ import {
   ButtonBase,
   Divider,
   Drawer,
-  IconButton,
   LinearProgress,
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 import {
   BannerProvider,
@@ -23,8 +23,6 @@ import {
 } from "App";
 
 import style from "./Layout.styles";
-import { useEffect, useRef, useState } from "react";
-import { projectName } from "../../../constants";
 
 export const Layout = () => {
   const [drawerVerticalOffset, setDrawerVerticalOffset] = useState(0);
