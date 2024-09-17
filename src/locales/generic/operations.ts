@@ -1,3 +1,5 @@
+import { LANGUAGE } from "App";
+
 const en = {
   auth: {
     backToLogin: "Back to Log In",
@@ -106,4 +108,4 @@ const ua: OperationsLocale = {
   },
 };
 
-export const operations = { en, ua };
+export const operations: { [key in LANGUAGE]: OperationsLocale } = { en, ua };

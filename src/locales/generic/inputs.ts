@@ -1,3 +1,5 @@
+import { LANGUAGE } from "App";
+
 const en = {
   creditCard: {
     number: {
@@ -124,4 +126,4 @@ const ua: InputsLocale = {
   },
 };
 
-export const inputs = { en, ua };
+export const inputs: { [key in LANGUAGE]: InputsLocale } = { en, ua };

@@ -1,3 +1,5 @@
+import { LANGUAGE } from "App";
+
 const en = {
   errors: {
     accessDenied: "Your access to this page is forbidden.",
@@ -283,4 +285,4 @@ const ua: MessagesLocale = {
   },
 };
 
-export const messages = { en, ua };
+export const messages: { [key in LANGUAGE]: MessagesLocale } = { en, ua };

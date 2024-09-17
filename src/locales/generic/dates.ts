@@ -1,3 +1,5 @@
+import { LANGUAGE } from "App";
+
 const en = {
   weekday: [
     { abbreviation: "Mon", name: "Monday" },
@@ -52,4 +54,4 @@ const ua: DatesLocale = {
   ],
 };
 
-export const dates = { en, ua };
+export const dates: { [key in LANGUAGE]: DatesLocale } = { en, ua };
