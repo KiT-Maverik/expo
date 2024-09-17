@@ -11,6 +11,37 @@ const loader: SxProps<Theme> = {
   right: 0,
   bottom: 0,
 } as const;
+const toolbar: {
+  loader: SxProps<Theme>;
+  menu: {
+    button: SxProps<Theme>;
+    container: (offset: number) => SxProps<Theme>;
+  };
+} = {
+  loader: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  menu: {
+    button: {
+      display: "flex",
+      alignItems: "center",
+      gap: 3,
+    },
+    container: (offset) => ({
+      position: "absolute",
+      top: offset - 1,
+      zIndex: 10000,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: drawerWidth,
+      minHeight: (theme) => theme.mixins.toolbar,
+    }),
+  },
+} as const;
 
 const drawer: {
   container: (offset: number) => SxProps<Theme>;
@@ -31,6 +62,6 @@ const drawer: {
 
 export default {
   drawer,
-  loader,
+  toolbar,
   main,
 };

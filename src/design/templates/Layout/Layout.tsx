@@ -4,6 +4,7 @@ import {
   AppBar,
   Box,
   Button,
+  ButtonBase,
   Divider,
   Drawer,
   IconButton,
@@ -23,6 +24,7 @@ import {
 
 import style from "./Layout.styles";
 import { useEffect, useRef, useState } from "react";
+import { projectName } from "../../../constants";
 
 export const Layout = () => {
   const [drawerVerticalOffset, setDrawerVerticalOffset] = useState(0);
@@ -38,24 +40,24 @@ export const Layout = () => {
   return (
     <>
       <BannerProvider />
+      <Box sx={style.toolbar.menu.container(drawerVerticalOffset)}>
+        <ButtonBase
+          sx={style.toolbar.menu.button}
+          onClick={() =>
+            showDrawer ? dispatch(closeDrawer()) : dispatch(openDrawer())
+          }
+        >
+          <MenuIcon />
+          <Typography variant="h6" component="div" flexGrow={1}>
+            Expo
+          </Typography>
+        </ButtonBase>
+      </Box>
       <AppBar position="relative">
         <Toolbar ref={toolbarRef}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            onClick={() =>
-              showDrawer ? dispatch(closeDrawer()) : dispatch(openDrawer())
-            }
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" flexGrow={1}>
-            News
-          </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
-        {showLoader && <LinearProgress sx={style.loader} />}
+        {showLoader && <LinearProgress sx={style.toolbar.loader} />}
       </AppBar>
       <Drawer
         PaperProps={{ sx: style.drawer.container(drawerVerticalOffset) }}
@@ -64,9 +66,7 @@ export const Layout = () => {
         open={showDrawer}
         onClose={() => dispatch(closeDrawer())}
       >
-        <Box sx={style.drawer.header}>
-          <IconButton onClick={() => console.log(1)}>pew</IconButton>
-        </Box>
+        <Box sx={style.drawer.header} />
         <Divider />
         pepewpew
       </Drawer>
