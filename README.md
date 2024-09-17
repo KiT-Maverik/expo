@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+A collection of reusable components, utilities, and tools designed to streamline the development process. It contains frequently used UI elements, along with utility functions for data manipulation, API calls, and state management. This library is intended to save time by providing pre-built solutions that can be quickly integrated into any new project. It promotes consistency across projects by enforcing standardized design and behavior. Additionally, it reduces development overhead and ensures best practices are followed, making project setup and implementation faster.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tech stack
+* React
+* Typescript
+* Vite
+* Redux Toolkit
+* Material UI
+* Emotion
 
-Currently, two official plugins are available:
+# Scope
+### Development utilities
+* Linter setup
+* TS config
+* Custom MUI theme
+* indexed db for state management?
+* Inline svg support
+* Utility types
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Utility pages
+* 404
+* Error Page
 
-## Expanding the ESLint configuration
+### Components
+* Password validation tooltip
+* Editable input
+* Loading button
+* Generic modal
+* Page wrapper. error boundary. generic layout, header controls
+* Layout
+* Banner provider
+* Modal provider
+* Theme provider
+* Toast provider
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Hooks
+* Copy to clipboard
+* Countdown
+* Screen detector for mui and other projects
+* Logout
+* Password validator
+* Viewport parameters
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Utils
+* Converters
+  * px/rem converter
+* Dates
+  * get UTC from ISO string
+* Helpers
+  * Normalise sx props
+  * Parse JWT token
+* Numbers
+  * Prettify number
+  * Simplify number
+* Testing
+  * Create test id. unified env based
