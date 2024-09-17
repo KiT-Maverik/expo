@@ -2,8 +2,9 @@ import { Stack, Typography, StackProps, SxProps, Theme } from "@mui/material";
 import { ReactNode, Ref, useCallback } from "react";
 import { Helmet } from "react-helmet";
 import { ErrorBoundary } from "react-error-boundary";
-import { Fallback } from "design/organisms";
-import { projectName } from "constants";
+
+import { projectName } from "App";
+import { ErrorPage } from "design/pages";
 
 import style from "./Page.style";
 
@@ -45,7 +46,7 @@ export const Page = ({ title, header, sx, children, head }: PageProps) => {
   }, [title, header]);
 
   return (
-    <ErrorBoundary fallbackRender={() => <Fallback />}>
+    <ErrorBoundary fallbackRender={() => <ErrorPage />}>
       <Helmet>
         {head ? (
           head
