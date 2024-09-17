@@ -16,6 +16,7 @@ A collection of reusable components, utilities, and tools designed to streamline
 * indexed db for state management?
 * Inline svg support
 * Utility types
+* Simplified import paths
 
 ### Utility pages
 * 404
