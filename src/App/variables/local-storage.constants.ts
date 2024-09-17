@@ -1,1 +1,4 @@
-export const localStorageKey = { token: "token" } as const;
+export const localStorageKey = {
+  language: "language",
+  token: "token",
+} as const;
