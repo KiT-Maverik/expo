@@ -3,14 +3,38 @@ import { Theme } from "@mui/material/styles";
 
 const drawerWidth = 240;
 
-const main: SxProps<Theme> = { flexGrow: 1, display: "grid" } as const;
+const smoothMarginChangeMixin: SxProps<Theme> = {
+  transition: (theme) =>
+    theme.transitions.create("margin", {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+};
 
-const loader: SxProps<Theme> = {
-  position: "absolute",
-  left: 0,
-  right: 0,
-  bottom: 0,
-} as const;
+const main: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
+  offsetLeft,
+  offsetRight,
+) =>
+  ({
+    flexGrow: 1,
+    display: "grid",
+    ...smoothMarginChangeMixin,
+    marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
+    marginRight: offsetRight ? `${drawerWidth}px` : 0,
+  }) as const;
+
+const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
+  offsetLeft,
+  offsetRight,
+) =>
+  ({
+    position: "relative",
+    width: "auto",
+    ...smoothMarginChangeMixin,
+    marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
+    marginRight: offsetRight ? `${drawerWidth}px` : 0,
+  }) as const;
+
 const toolbar: {
   loader: SxProps<Theme>;
   menu: {
@@ -62,6 +86,7 @@ const drawer: {
 
 export default {
   drawer,
+  appBar,
   toolbar,
   main,
 };

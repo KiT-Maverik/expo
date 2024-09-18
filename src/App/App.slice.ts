@@ -3,12 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 import { type RootState } from "App/App.store.ts";
 
 export interface AppState {
-  showDrawer: boolean;
+  showLeftDrawer: boolean;
+  showRightDrawer: boolean;
   showLoader: boolean;
 }
 
 const initialState: AppState = {
-  showDrawer: false,
+  showLeftDrawer: false,
+  showRightDrawer: false,
   showLoader: false,
 };
 
@@ -16,27 +18,41 @@ export const appSlice = createSlice({
   name: "App",
   initialState,
   reducers: {
-    openDrawer: (state) => ({
+    openLeftDrawer: (state): AppState => ({
       ...state,
-      showDrawer: true,
+      showLeftDrawer: true,
     }),
-    closeDrawer: (state) => ({
+    closeLeftDrawer: (state): AppState => ({
       ...state,
-      showDrawer: false,
+      showLeftDrawer: false,
     }),
-    showLoader: (state) => ({
+    openRightDrawer: (state): AppState => ({
+      ...state,
+      showRightDrawer: true,
+    }),
+    closeRightDrawer: (state): AppState => ({
+      ...state,
+      showRightDrawer: false,
+    }),
+    showLoader: (state): AppState => ({
       ...state,
       showLoader: true,
     }),
-    hideLoader: (state) => ({
+    hideLoader: (state): AppState => ({
       ...state,
       showLoader: false,
     }),
   },
 });
 
-export const { openDrawer, closeDrawer, showLoader, hideLoader } =
-  appSlice.actions;
+export const {
+  openLeftDrawer,
+  closeLeftDrawer,
+  openRightDrawer,
+  closeRightDrawer,
+  showLoader,
+  hideLoader,
+} = appSlice.actions;
 
 export const selectAppState = (state: RootState) => state.app;
 

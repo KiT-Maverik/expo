@@ -18,9 +18,11 @@ import {
   useAppSelector,
   selectAppState,
   useAppDispatch,
-  closeDrawer,
-  openDrawer,
+  closeLeftDrawer,
+  openLeftDrawer,
   projectName,
+  openRightDrawer,
+  closeRightDrawer,
 } from "App";
 
 import style from "./Layout.styles";
@@ -28,7 +30,8 @@ import style from "./Layout.styles";
 export const Layout = () => {
   const [drawerVerticalOffset, setDrawerVerticalOffset] = useState(0);
   const toolbarRef = useRef<HTMLDivElement | null>(null);
-  const { showLoader, showDrawer } = useAppSelector(selectAppState);
+  const { showLoader, showLeftDrawer, showRightDrawer } =
+    useAppSelector(selectAppState);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -43,7 +46,9 @@ export const Layout = () => {
         <ButtonBase
           sx={style.toolbar.menu.button}
           onClick={() =>
-            showDrawer ? dispatch(closeDrawer()) : dispatch(openDrawer())
+            showLeftDrawer
+              ? dispatch(closeLeftDrawer())
+              : dispatch(openLeftDrawer())
           }
         >
           <MenuIcon />
@@ -52,9 +57,18 @@ export const Layout = () => {
           </Typography>
         </ButtonBase>
       </Box>
-      <AppBar position="relative">
+      <AppBar sx={style.appBar(showLeftDrawer, showRightDrawer)}>
         <Toolbar ref={toolbarRef}>
-          <Button color="inherit">Login</Button>
+          <Button
+            color="inherit"
+            onClick={() =>
+              showLeftDrawer
+                ? dispatch(closeRightDrawer())
+                : dispatch(openRightDrawer())
+            }
+          >
+            Login
+          </Button>
         </Toolbar>
         {showLoader && <LinearProgress sx={style.toolbar.loader} />}
       </AppBar>
@@ -62,14 +76,25 @@ export const Layout = () => {
         PaperProps={{ sx: style.drawer.container(drawerVerticalOffset) }}
         variant="persistent"
         anchor="left"
-        open={showDrawer}
-        onClose={() => dispatch(closeDrawer())}
+        open={showLeftDrawer}
+        onClose={() => dispatch(closeLeftDrawer())}
       >
         <Box sx={style.drawer.header} />
         <Divider />
-        pepewpew
+        Left drawer
       </Drawer>
-      <Box component="main" sx={style.main}>
+      <Drawer
+        PaperProps={{ sx: style.drawer.container(drawerVerticalOffset) }}
+        variant="persistent"
+        anchor="right"
+        open={showRightDrawer}
+        onClose={() => dispatch(closeLeftDrawer())}
+      >
+        <Box sx={style.drawer.header} />
+        <Divider />
+        Right drawer
+      </Drawer>
+      <Box component="main" sx={style.main(showLeftDrawer, showRightDrawer)}>
         {<Outlet />}
       </Box>
     </>
