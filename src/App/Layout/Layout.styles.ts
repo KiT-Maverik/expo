@@ -3,13 +3,14 @@ import { Theme } from "@mui/material/styles";
 
 const drawerWidth = 240;
 
-const smoothMarginChangeMixin: SxProps<Theme> = {
-  transition: (theme) =>
-    theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-};
+const smoothChangeMixin: (prop: string) => SxProps<Theme> = (prop) =>
+  ({
+    transition: (theme) =>
+      theme.transitions.create(prop, {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+  }) as const;
 
 const main: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
   offsetLeft,
@@ -18,7 +19,7 @@ const main: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
   ({
     flexGrow: 1,
     display: "grid",
-    ...smoothMarginChangeMixin,
+    ...smoothChangeMixin("margin"),
     marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
     marginRight: offsetRight ? `${drawerWidth}px` : 0,
   }) as const;
@@ -30,8 +31,8 @@ const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
   ({
     position: "relative",
     width: "auto",
-    ...smoothMarginChangeMixin,
-    pl: offsetLeft ? `${drawerWidth}px` : 0,
+    ...smoothChangeMixin("margin"),
+    pl: !offsetLeft ? `${drawerWidth}px` : 0,
     marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
     marginRight: offsetRight ? `${drawerWidth}px` : 0,
   }) as const;
@@ -42,7 +43,7 @@ const toolbar: {
 } = {
   container: {
     display: "flex",
-    justifyContent: "end",
+    justifyContent: "space-between",
   },
   loader: {
     position: "absolute",
@@ -52,33 +53,27 @@ const toolbar: {
   },
 } as const;
 
-const menuButton: {
-  button: SxProps<Theme>;
-  container: (offset: number) => SxProps<Theme>;
-} = {
-  button: {
-    display: "flex",
-    alignItems: "center",
-    gap: 3,
-    width: `${drawerWidth}px`,
-    pl: (theme) => theme.mixins.contentSpacingX.lg,
-    textAlign: "left",
-    height: (theme) => theme.mixins.toolbar.height,
-  },
-  container: (offset) => ({
-    position: "absolute",
-    top: offset - 1,
-    zIndex: 10000,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "stretch",
-    minHeight: (theme) => theme.mixins.toolbar,
+const menuButton: (
+  offsetTop: number,
+  leftDrawerShown: boolean,
+) => SxProps<Theme> = (offsetTop, leftDrawerShown) => ({
+  display: "flex",
+  gap: 3,
+  width: `${drawerWidth}px`,
+  pl: (theme) => theme.mixins.contentSpacingX.lg,
+  textAlign: "left",
+  height: (theme) => theme.mixins.toolbar.height,
+  color: (theme) => (leftDrawerShown ? theme.palette.text.primary : "white"),
+  position: "absolute",
+  top: offsetTop - 1,
+  zIndex: 10000,
+  alignItems: "center",
+  minHeight: (theme) => theme.mixins.toolbar,
 
-    ":hover": {
-      backgroundColor: (theme) => theme.palette.action.disabledBackground,
-    },
-  }),
-} as const;
+  ":hover": {
+    backgroundColor: (theme) => theme.palette.action.disabledBackground,
+  },
+});
 
 const drawer: {
   container: (offset: number) => SxProps<Theme>;

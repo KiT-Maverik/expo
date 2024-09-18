@@ -42,32 +42,30 @@ export const Layout = () => {
   return (
     <>
       <BannerProvider />
-      <Box
+      <ButtonBase
         onClick={() =>
           showLeftDrawer
             ? dispatch(closeLeftDrawer())
             : dispatch(openLeftDrawer())
         }
-        sx={style.menuButton.container(drawerVerticalOffset)}
+        sx={style.menuButton(drawerVerticalOffset, showLeftDrawer)}
       >
-        <ButtonBase sx={style.menuButton.button}>
-          <MenuIcon />
-          <Typography variant="h6" component="div" flexGrow={1}>
-            {projectName}
-          </Typography>
-        </ButtonBase>
-      </Box>
+        <MenuIcon />
+        <Typography variant="h6" component="div" flexGrow={1}>
+          {projectName}
+        </Typography>
+      </ButtonBase>
       <AppBar sx={style.appBar(showLeftDrawer, showRightDrawer)}>
         <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
+          <Button>Placeholder</Button>
           <Button
-            color="inherit"
             onClick={() =>
               showRightDrawer
                 ? dispatch(closeRightDrawer())
                 : dispatch(openRightDrawer())
             }
           >
-            Login
+            Toggle Right Drawer
           </Button>
         </Toolbar>
         {showLoader && <LinearProgress sx={style.toolbar.loader} />}
