@@ -24,7 +24,11 @@ import {
   openRightDrawer,
   closeRightDrawer,
 } from "App";
-import { LeftDrawerContent, RightDrawerContent } from "design/templates";
+import {
+  Footer,
+  LeftDrawerContent,
+  RightDrawerContent,
+} from "design/templates";
 
 import style from "./Layout.styles";
 
@@ -100,9 +104,7 @@ export const Layout = () => {
         <Box component="main" sx={style.main}>
           {<Outlet />}
         </Box>
-        <Box component="footer" sx={style.footer}>
-          footer
-        </Box>
+        <Footer />
       </Box>
     </>
   );
