@@ -24,7 +24,7 @@ import {
   openRightDrawer,
   closeRightDrawer,
 } from "App";
-import { LeftDrawerContent } from "design/templates";
+import { LeftDrawerContent, RightDrawerContent } from "design/templates";
 
 import style from "./Layout.styles";
 
@@ -92,7 +92,7 @@ export const Layout = () => {
       >
         <Box sx={style.drawer.header} />
         <Divider />
-        Right drawer
+        <RightDrawerContent />
       </Drawer>
       <Box component="main" sx={style.main(showLeftDrawer, showRightDrawer)}>
         {<Outlet />}
