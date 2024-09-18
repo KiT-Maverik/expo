@@ -28,14 +28,16 @@ const contentArea: (
 
 const main: SxProps<Theme> = {} as const;
 
-const appBar: (leftDrawerIsShown: boolean) => SxProps<Theme> = (
-  leftDrawerIsShown,
-) =>
+const appBar: (
+  leftDrawerIsShown: boolean,
+  rightDrawerIsShown: boolean,
+) => SxProps<Theme> = (leftDrawerIsShown, rightDrawerIsShown) =>
   ({
     position: "relative",
     width: "auto",
     ...smoothChangeMixin("padding"),
     pl: !leftDrawerIsShown ? `${drawerWidth}px` : 0,
+    pr: !rightDrawerIsShown ? `${drawerWidth}px` : 0,
   }) as const;
 
 const toolbar: {

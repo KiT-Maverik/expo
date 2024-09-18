@@ -80,7 +80,7 @@ export const Layout = () => {
       </Drawer>
       <Box sx={style.contentArea(showLeftDrawer, showRightDrawer)}>
         <Box component="header">
-          <AppBar sx={style.appBar(showLeftDrawer)}>
+          <AppBar sx={style.appBar(showLeftDrawer, showRightDrawer)}>
             <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
               <Button color="inherit">Placeholder</Button>
               <Button
