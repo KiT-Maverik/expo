@@ -37,10 +37,6 @@ const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
 
 const toolbar: {
   loader: SxProps<Theme>;
-  menu: {
-    button: SxProps<Theme>;
-    container: (offset: number) => SxProps<Theme>;
-  };
 } = {
   loader: {
     position: "absolute",
@@ -48,23 +44,27 @@ const toolbar: {
     right: 0,
     bottom: 0,
   },
-  menu: {
-    button: {
-      display: "flex",
-      alignItems: "center",
-      gap: 3,
-    },
-    container: (offset) => ({
-      position: "absolute",
-      top: offset - 1,
-      zIndex: 10000,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: drawerWidth,
-      minHeight: (theme) => theme.mixins.toolbar,
-    }),
+} as const;
+
+const menuButton: {
+  button: SxProps<Theme>;
+  container: (offset: number) => SxProps<Theme>;
+} = {
+  button: {
+    display: "flex",
+    alignItems: "center",
+    gap: 3,
   },
+  container: (offset) => ({
+    position: "absolute",
+    top: offset - 1,
+    zIndex: 10000,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: drawerWidth,
+    minHeight: (theme) => theme.mixins.toolbar,
+  }),
 } as const;
 
 const drawer: {
@@ -88,5 +88,6 @@ export default {
   drawer,
   appBar,
   toolbar,
+  menuButton,
   main,
 };

@@ -42,9 +42,9 @@ export const Layout = () => {
   return (
     <>
       <BannerProvider />
-      <Box sx={style.toolbar.menu.container(drawerVerticalOffset)}>
+      <Box sx={style.menuButton.container(drawerVerticalOffset)}>
         <ButtonBase
-          sx={style.toolbar.menu.button}
+          sx={style.menuButton.button}
           onClick={() =>
             showLeftDrawer
               ? dispatch(closeLeftDrawer())
@@ -62,7 +62,7 @@ export const Layout = () => {
           <Button
             color="inherit"
             onClick={() =>
-              showLeftDrawer
+              showRightDrawer
                 ? dispatch(closeRightDrawer())
                 : dispatch(openRightDrawer())
             }
