@@ -36,8 +36,13 @@ const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
   }) as const;
 
 const toolbar: {
+  container: SxProps<Theme>;
   loader: SxProps<Theme>;
 } = {
+  container: {
+    display: "flex",
+    justifyContent: "end",
+  },
   loader: {
     position: "absolute",
     left: 0,

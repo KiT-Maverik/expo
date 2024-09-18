@@ -58,7 +58,7 @@ export const Layout = () => {
         </ButtonBase>
       </Box>
       <AppBar sx={style.appBar(showLeftDrawer, showRightDrawer)}>
-        <Toolbar ref={toolbarRef}>
+        <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
           <Button
             color="inherit"
             onClick={() =>
