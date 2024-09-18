@@ -42,15 +42,15 @@ export const Layout = () => {
   return (
     <>
       <BannerProvider />
-      <Box sx={style.menuButton.container(drawerVerticalOffset)}>
-        <ButtonBase
-          sx={style.menuButton.button}
-          onClick={() =>
-            showLeftDrawer
-              ? dispatch(closeLeftDrawer())
-              : dispatch(openLeftDrawer())
-          }
-        >
+      <Box
+        onClick={() =>
+          showLeftDrawer
+            ? dispatch(closeLeftDrawer())
+            : dispatch(openLeftDrawer())
+        }
+        sx={style.menuButton.container(drawerVerticalOffset)}
+      >
+        <ButtonBase sx={style.menuButton.button}>
           <MenuIcon />
           <Typography variant="h6" component="div" flexGrow={1}>
             {projectName}

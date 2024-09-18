@@ -31,6 +31,7 @@ const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
     position: "relative",
     width: "auto",
     ...smoothMarginChangeMixin,
+    pl: offsetLeft ? `${drawerWidth}px` : 0,
     marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
     marginRight: offsetRight ? `${drawerWidth}px` : 0,
   }) as const;
@@ -59,6 +60,10 @@ const menuButton: {
     display: "flex",
     alignItems: "center",
     gap: 3,
+    width: `${drawerWidth}px`,
+    pl: (theme) => theme.mixins.contentSpacingX.lg,
+    textAlign: "left",
+    height: (theme) => theme.mixins.toolbar.height,
   },
   container: (offset) => ({
     position: "absolute",
@@ -66,9 +71,12 @@ const menuButton: {
     zIndex: 10000,
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    width: drawerWidth,
+    alignItems: "stretch",
     minHeight: (theme) => theme.mixins.toolbar,
+
+    ":hover": {
+      backgroundColor: (theme) => theme.palette.action.disabledBackground,
+    },
   }),
 } as const;
 
