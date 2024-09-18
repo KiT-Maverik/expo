@@ -1,3 +1,6 @@
+/**
+ * Parses a JSON Web Token (JWT) and returns its payload as a JavaScript object.
+ */
 export const parseJwt = (token?: string) => {
   if (!token) {
     return null;
