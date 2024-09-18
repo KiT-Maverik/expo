@@ -56,22 +56,6 @@ export const Layout = () => {
           {projectName}
         </Typography>
       </ButtonBase>
-      <AppBar sx={style.appBar(showLeftDrawer, showRightDrawer)}>
-        <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
-          <Button color="inherit">Placeholder</Button>
-          <Button
-            color="inherit"
-            onClick={() =>
-              showRightDrawer
-                ? dispatch(closeRightDrawer())
-                : dispatch(openRightDrawer())
-            }
-          >
-            Toggle Right Drawer
-          </Button>
-        </Toolbar>
-        {showLoader && <LinearProgress sx={style.toolbar.loader} />}
-      </AppBar>
       <Drawer
         PaperProps={{ sx: style.drawer.container(drawerVerticalOffset) }}
         variant="persistent"
@@ -95,11 +79,30 @@ export const Layout = () => {
         <RightDrawerContent />
       </Drawer>
       <Box sx={style.contentArea(showLeftDrawer, showRightDrawer)}>
-        <Box component="header">header</Box>
+        <Box component="header">
+          <AppBar sx={style.appBar(showLeftDrawer)}>
+            <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
+              <Button color="inherit">Placeholder</Button>
+              <Button
+                color="inherit"
+                onClick={() =>
+                  showRightDrawer
+                    ? dispatch(closeRightDrawer())
+                    : dispatch(openRightDrawer())
+                }
+              >
+                Toggle Right Drawer
+              </Button>
+            </Toolbar>
+            {showLoader && <LinearProgress sx={style.toolbar.loader} />}
+          </AppBar>
+        </Box>
         <Box component="main" sx={style.main}>
           {<Outlet />}
         </Box>
-        <Box component="footer" sx={style.footer}>footer</Box>
+        <Box component="footer" sx={style.footer}>
+          footer
+        </Box>
       </Box>
     </>
   );

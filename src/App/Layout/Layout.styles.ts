@@ -28,17 +28,14 @@ const contentArea: (
 
 const main: SxProps<Theme> = {} as const;
 
-const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
-  offsetLeft,
-  offsetRight,
+const appBar: (leftDrawerIsShown: boolean) => SxProps<Theme> = (
+  leftDrawerIsShown,
 ) =>
   ({
     position: "relative",
     width: "auto",
-    ...smoothChangeMixin("margin"),
-    pl: !offsetLeft ? `${drawerWidth}px` : 0,
-    marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
-    marginRight: offsetRight ? `${drawerWidth}px` : 0,
+    ...smoothChangeMixin("padding"),
+    pl: !leftDrawerIsShown ? `${drawerWidth}px` : 0,
   }) as const;
 
 const toolbar: {
@@ -99,6 +96,9 @@ const drawer: {
 export const footer: SxProps<Theme> = {
   px: (theme) => theme.mixins.contentSpacingX.lg,
   backgroundColor: (theme) => theme.palette.background.footer,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 export default {
