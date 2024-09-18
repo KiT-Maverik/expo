@@ -8,6 +8,7 @@ export const paletteLight: PaletteOptions = {
   },
   background: {
     surface: grey["200"],
+    footer: "#aec5db",
     accent: "#dfd7d3",
   },
 };

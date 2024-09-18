@@ -94,8 +94,12 @@ export const Layout = () => {
         <Divider />
         <RightDrawerContent />
       </Drawer>
-      <Box component="main" sx={style.main(showLeftDrawer, showRightDrawer)}>
-        {<Outlet />}
+      <Box sx={style.contentArea(showLeftDrawer, showRightDrawer)}>
+        <Box component="header">header</Box>
+        <Box component="main" sx={style.main}>
+          {<Outlet />}
+        </Box>
+        <Box component="footer" sx={style.footer}>footer</Box>
       </Box>
     </>
   );

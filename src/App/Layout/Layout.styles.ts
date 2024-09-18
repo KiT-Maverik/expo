@@ -12,17 +12,21 @@ const smoothChangeMixin: (prop: string) => SxProps<Theme> = (prop) =>
       }),
   }) as const;
 
-const main: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
-  offsetLeft,
-  offsetRight,
-) =>
+const contentArea: (
+  offsetLeft: boolean,
+  offsetRight: boolean,
+) => SxProps<Theme> = (offsetLeft, offsetRight) =>
   ({
     flexGrow: 1,
     display: "grid",
+    gridTemplateRows: (theme) =>
+      `${theme.mixins.toolbar.minHeight}px auto ${theme.mixins.toolbar.minHeight}px `,
     ...smoothChangeMixin("margin"),
     marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
     marginRight: offsetRight ? `${drawerWidth}px` : 0,
   }) as const;
+
+const main: SxProps<Theme> = {} as const;
 
 const appBar: (offsetLeft: boolean, offsetRight: boolean) => SxProps<Theme> = (
   offsetLeft,
@@ -92,7 +96,14 @@ const drawer: {
   }),
 } as const;
 
+export const footer: SxProps<Theme> = {
+  px: (theme) => theme.mixins.contentSpacingX.lg,
+  backgroundColor: (theme) => theme.palette.background.footer,
+};
+
 export default {
+  contentArea,
+  footer,
   drawer,
   appBar,
   toolbar,

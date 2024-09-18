@@ -23,6 +23,7 @@ declare module "@mui/material/styles" {
 
   interface TypeBackground {
     surface: string;
+    footer: string;
     accent: string;
   }
   interface PaletteOptions {
