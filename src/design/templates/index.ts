@@ -1,5 +1,8 @@
 export * from "./Page/Page";
 
+// Layout
+export * from "./layout/LeftDrawerContent/LeftDrawerContent.tsx";
+
 // Modals
 export * from "./Modal/Modal";
 export * from "./Modal/Modal.hooks";

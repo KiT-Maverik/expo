@@ -24,6 +24,7 @@ import {
   openRightDrawer,
   closeRightDrawer,
 } from "App";
+import { LeftDrawerContent } from "design/templates";
 
 import style from "./Layout.styles";
 
@@ -57,8 +58,9 @@ export const Layout = () => {
       </ButtonBase>
       <AppBar sx={style.appBar(showLeftDrawer, showRightDrawer)}>
         <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
-          <Button>Placeholder</Button>
+          <Button color="inherit">Placeholder</Button>
           <Button
+            color="inherit"
             onClick={() =>
               showRightDrawer
                 ? dispatch(closeRightDrawer())
@@ -79,7 +81,7 @@ export const Layout = () => {
       >
         <Box sx={style.drawer.header} />
         <Divider />
-        Left drawer
+        <LeftDrawerContent />
       </Drawer>
       <Drawer
         PaperProps={{ sx: style.drawer.container(drawerVerticalOffset) }}
