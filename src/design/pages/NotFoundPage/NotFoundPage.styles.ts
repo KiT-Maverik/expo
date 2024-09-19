@@ -2,10 +2,9 @@ import { SxProps } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 
 const container: SxProps<Theme> = {
-  alignSelf: "center",
-  justifySelf: "center",
   display: "flex",
   flexDirection: "column",
+  justifyContent: "center",
   alignItems: "center",
   gap: 5,
 } as const;

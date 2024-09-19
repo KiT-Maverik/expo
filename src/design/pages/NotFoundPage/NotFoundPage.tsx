@@ -11,7 +11,7 @@ export const NotFoundPage = () => {
   const navigate = useNavigate();
 
   return (
-    <Content>
+    <Content containerStyle={style.container}>
       <ErrorIcon sx={style.icon} />
       <Typography variant="h2" textAlign="center">
         The page you are looking for is not found
