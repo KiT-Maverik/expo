@@ -12,33 +12,23 @@ const smoothChangeMixin: (prop: string) => SxProps<Theme> = (prop) =>
       }),
   }) as const;
 
-const contentArea: (
-  offsetLeft: boolean,
-  offsetRight: boolean,
-) => SxProps<Theme> = (offsetLeft, offsetRight) =>
-  ({
-    flexGrow: 1,
-    display: "grid",
-    gridTemplateRows: (theme) =>
-      `${theme.mixins.toolbar.minHeight}px auto ${theme.mixins.toolbar.minHeight}px `,
-    ...smoothChangeMixin("margin"),
-    marginLeft: offsetLeft ? `${drawerWidth}px` : 0,
-    marginRight: offsetRight ? `${drawerWidth}px` : 0,
-  }) as const;
+const contentArea: SxProps<Theme> = {
+  flexGrow: 1,
+  display: "grid",
+  gridTemplateRows: (theme) =>
+    `${theme.mixins.toolbar.minHeight}px auto ${theme.mixins.toolbar.minHeight}px `,
+} as const;
 
-const main: SxProps<Theme> = {} as const;
+const main: SxProps<Theme> = {
+  display: "flex",
+  overflowX: "hidden",
+} as const;
 
-const appBar: (
-  leftDrawerIsShown: boolean,
-  rightDrawerIsShown: boolean,
-) => SxProps<Theme> = (leftDrawerIsShown, rightDrawerIsShown) =>
-  ({
-    position: "relative",
-    width: "auto",
-    ...smoothChangeMixin("padding"),
-    pl: !leftDrawerIsShown ? `${drawerWidth}px` : 0,
-    pr: !rightDrawerIsShown ? `${drawerWidth}px` : 0,
-  }) as const;
+const appBar: SxProps<Theme> = {
+  position: "relative",
+  width: "auto",
+  ...smoothChangeMixin("padding"),
+} as const;
 
 const toolbar: {
   container: SxProps<Theme>;
@@ -56,45 +46,20 @@ const toolbar: {
   },
 } as const;
 
-const menuButton: (
-  offsetTop: number,
-  leftDrawerShown: boolean,
-) => SxProps<Theme> = (offsetTop, leftDrawerShown) => ({
+const menuButton: SxProps<Theme> = {
   display: "flex",
   gap: 3,
   width: `${drawerWidth}px`,
   pl: (theme) => theme.mixins.contentSpacingX.lg,
   textAlign: "left",
-  height: (theme) => theme.mixins.toolbar.height,
-  color: (theme) => (leftDrawerShown ? theme.palette.text.primary : "white"),
   position: "absolute",
-  top: offsetTop - 1,
-  zIndex: 10000,
   alignItems: "center",
   minHeight: (theme) => theme.mixins.toolbar,
 
   ":hover": {
     backgroundColor: (theme) => theme.palette.action.disabledBackground,
   },
-});
-
-const drawer: {
-  container: (offset: number) => SxProps<Theme>;
-  header: SxProps<Theme>;
-} = {
-  container: (offset) => ({
-    width: drawerWidth,
-    top: offset - 1,
-  }),
-  header: (theme) => ({
-    display: "flex",
-    alignItems: "center",
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  }),
-} as const;
-
+};
 export const footer: SxProps<Theme> = {
   px: (theme) => theme.mixins.contentSpacingX.lg,
   backgroundColor: (theme) => theme.palette.background.footer,
@@ -106,7 +71,6 @@ export const footer: SxProps<Theme> = {
 export default {
   contentArea,
   footer,
-  drawer,
   appBar,
   toolbar,
   menuButton,
