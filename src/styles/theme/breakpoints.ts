@@ -1,4 +1,10 @@
-export const breakpoints = {
+import { Breakpoints } from "@mui/material";
+
+interface CustomBreakpoints {
+  values: Breakpoints["values"];
+}
+
+export const breakpoints: CustomBreakpoints = {
   values: {
     mobile: 480, // xs
     tablet: 768, //sm
