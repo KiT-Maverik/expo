@@ -22,6 +22,7 @@ const contentArea: SxProps<Theme> = {
 const main: SxProps<Theme> = {
   display: "flex",
   overflowX: "hidden",
+  flexGrow: 1,
 } as const;
 
 const appBar: SxProps<Theme> = {

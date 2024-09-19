@@ -35,56 +35,52 @@ export const Layout = () => {
   return (
     <>
       <BannerProvider />
-      <Box sx={{ display: "flex", flexGrow: 1 }}>
-        <Box sx={style.contentArea}>
-          <Box component="header">
-            <AppBar sx={style.appBar}>
-              <ButtonBase
-                onClick={() =>
-                  showLeftDrawer
-                    ? dispatch(closeLeftDrawer())
-                    : dispatch(openLeftDrawer())
-                }
-                sx={style.menuButton}
-              >
-                <MenuIcon />
-                <Typography variant="h6" component="div" flexGrow={1}>
-                  {projectName}
-                </Typography>
-              </ButtonBase>
-              <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
-                <Button
-                  color="inherit"
-                  onClick={() =>
-                    showLeftDrawer
-                      ? dispatch(closeLeftDrawer())
-                      : dispatch(openLeftDrawer())
-                  }
-                >
-                  Toggle Left Drawer
-                </Button>
-                <Button
-                  color="inherit"
-                  onClick={() =>
-                    showRightDrawer
-                      ? dispatch(closeRightDrawer())
-                      : dispatch(openRightDrawer())
-                  }
-                >
-                  Toggle Right Drawer
-                </Button>
-              </Toolbar>
-              {showLoader && <LinearProgress sx={style.toolbar.loader} />}
-            </AppBar>
-          </Box>
-          <Box component="main" sx={style.main}>
-            <Drawer show={showLeftDrawer} side="left" />
-            {<Outlet />}
-            <Drawer show={showRightDrawer} side="right" />
-          </Box>
-          <Footer />
-        </Box>
+      <Box component="header">
+        <AppBar sx={style.appBar}>
+          <ButtonBase
+            onClick={() =>
+              showLeftDrawer
+                ? dispatch(closeLeftDrawer())
+                : dispatch(openLeftDrawer())
+            }
+            sx={style.menuButton}
+          >
+            <MenuIcon />
+            <Typography variant="h6" component="div" flexGrow={1}>
+              {projectName}
+            </Typography>
+          </ButtonBase>
+          <Toolbar ref={toolbarRef} sx={style.toolbar.container}>
+            <Button
+              color="inherit"
+              onClick={() =>
+                showLeftDrawer
+                  ? dispatch(closeLeftDrawer())
+                  : dispatch(openLeftDrawer())
+              }
+            >
+              Toggle Left Drawer
+            </Button>
+            <Button
+              color="inherit"
+              onClick={() =>
+                showRightDrawer
+                  ? dispatch(closeRightDrawer())
+                  : dispatch(openRightDrawer())
+              }
+            >
+              Toggle Right Drawer
+            </Button>
+          </Toolbar>
+          {showLoader && <LinearProgress sx={style.toolbar.loader} />}
+        </AppBar>
       </Box>
+      <Box component="main" sx={style.main}>
+        <Drawer show={showLeftDrawer} side="left" />
+        {<Outlet />}
+        <Drawer show={showRightDrawer} side="right" />
+      </Box>
+      <Footer />
     </>
   );
 };
