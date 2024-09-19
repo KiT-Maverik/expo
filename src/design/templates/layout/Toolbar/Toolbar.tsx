@@ -8,6 +8,7 @@ import {
   Toolbar as Mui_Toolbar,
   Typography,
 } from "@mui/material";
+import { useMemo } from "react";
 
 import {
   closeLeftDrawer,
@@ -21,46 +22,38 @@ import {
 } from "App";
 
 import style from "./Toolbar.styles.ts";
-import { useMemo } from "react";
 
-export type Toolbar_ContentSet = "default" | "customized";
-
-interface ToolbarProps {
-  contentSet?: Toolbar_ContentSet;
-}
-
-export const Toolbar = ({ contentSet = "default" }: ToolbarProps) => {
+export const Toolbar = () => {
   const { showLoader, showLeftDrawer, showRightDrawer } =
     useAppSelector(selectAppState);
   const dispatch = useAppDispatch();
 
   const items = useMemo(() => {
-    if (contentSet === "default")
-      return (
-        <>
-          <Button
-            color="inherit"
-            onClick={() =>
-              showLeftDrawer
-                ? dispatch(closeLeftDrawer())
-                : dispatch(openLeftDrawer())
-            }
-          >
-            Toggle Left Drawer
-          </Button>
-          <Button
-            color="inherit"
-            onClick={() =>
-              showRightDrawer
-                ? dispatch(closeRightDrawer())
-                : dispatch(openRightDrawer())
-            }
-          >
-            Toggle Right Drawer
-          </Button>
-        </>
-      );
-    else return <></>;
+    // Add conditional logic here to render various sets of content for various situations
+    return (
+      <>
+        <Button
+          color="inherit"
+          onClick={() =>
+            showLeftDrawer
+              ? dispatch(closeLeftDrawer())
+              : dispatch(openLeftDrawer())
+          }
+        >
+          Toggle Left Drawer
+        </Button>
+        <Button
+          color="inherit"
+          onClick={() =>
+            showRightDrawer
+              ? dispatch(closeRightDrawer())
+              : dispatch(openRightDrawer())
+          }
+        >
+          Toggle Right Drawer
+        </Button>
+      </>
+    );
   }, [showLeftDrawer, showRightDrawer]);
 
   return (

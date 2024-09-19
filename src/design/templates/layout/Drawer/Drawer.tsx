@@ -7,39 +7,37 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-
-import style from "./Drawer.styles.ts";
 import { useMemo } from "react";
+
 import { selectAppState, useAppSelector } from "App";
 
+import style from "./Drawer.styles.ts";
+
 export type DrawerSide = "left" | "right";
-export type DrawerItems = "default" | "customized";
 
 interface DrawerProps {
-  contentSet?: DrawerItems;
   side: DrawerSide;
 }
 
-export const Drawer = ({ contentSet = "default", side }: DrawerProps) => {
+export const Drawer = ({ side }: DrawerProps) => {
   const { showLeftDrawer, showRightDrawer } = useAppSelector(selectAppState);
 
   const items = useMemo(() => {
-    if (contentSet === "default")
-      return (
-        <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  <ChevronRightIcon />
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      );
-    else return <></>;
+    // Add conditional logic here to render various sets of content for various situations
+    return (
+      <List>
+        {["Inbox", "Starred", "Send email", "Drafts"].map((text) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <ChevronRightIcon />
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    );
   }, []);
 
   return (

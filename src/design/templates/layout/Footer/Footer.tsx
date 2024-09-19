@@ -1,20 +1,17 @@
-import {
-  Box,
-} from "@mui/material";
+import { Box } from "@mui/material";
+import { useMemo } from "react";
 
 import style from "./Footer.styles.ts";
 
-export type Footer_ContentSet = "default" | "customized";
+export const Footer = () => {
+  const items = useMemo(() => {
+    // Add conditional logic here to render various sets of content for various situations
+    return <>Footer</>;
+  }, []);
 
-interface FooterProps {
-  contentSet?: Footer_ContentSet;
-}
-
-export const Footer = ({ contentSet = "default" }: FooterProps) => {
-  if (contentSet === "default")
-    return (
-      <Box component="footer" sx={style.container}>
-        footer
-      </Box>
-    );
+  return (
+    <Box component="footer" sx={style.container}>
+      {items}
+    </Box>
+  );
 };
