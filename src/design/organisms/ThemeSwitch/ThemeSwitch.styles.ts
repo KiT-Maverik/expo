@@ -4,6 +4,12 @@ import { blueGrey, yellow, grey } from "@mui/material/colors";
 
 const container: SxProps<Theme> = (theme: Theme) =>
   ({
+    p: 0,
+
+    [`.${switchClasses.switchBase}`]: {
+      height: 1,
+    },
+
     [`.${switchClasses.thumb}`]: {
       backgroundColor: yellow["100"],
 
@@ -12,7 +18,12 @@ const container: SxProps<Theme> = (theme: Theme) =>
       }),
     },
     [`.${switchClasses.track}`]: {
+      position: "absolute",
+      top: "50%",
+      transform: "translateY(-50%)",
       opacity: 1,
+      height: 24,
+      borderRadius: 12,
       backgroundColor: blueGrey["700"],
 
       ...theme.applyStyles("dark", {
