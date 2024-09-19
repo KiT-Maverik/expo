@@ -10,17 +10,19 @@ import {
 
 import style from "./Drawer.styles.ts";
 import { useMemo } from "react";
+import { selectAppState, useAppSelector } from "App";
 
 export type DrawerSide = "left" | "right";
 export type DrawerItems = "default" | "customized";
 
 interface DrawerProps {
   contentSet?: DrawerItems;
-  show: boolean;
   side: DrawerSide;
 }
 
-export const Drawer = ({ contentSet = "default", show, side }: DrawerProps) => {
+export const Drawer = ({ contentSet = "default", side }: DrawerProps) => {
+  const { showLeftDrawer, showRightDrawer } = useAppSelector(selectAppState);
+
   const items = useMemo(() => {
     if (contentSet === "default")
       return (
@@ -40,5 +42,14 @@ export const Drawer = ({ contentSet = "default", show, side }: DrawerProps) => {
     else return <></>;
   }, []);
 
-  return <Box sx={style.container(show, side)}>{items}</Box>;
+  return (
+    <Box
+      sx={style.container(
+        side === "left" ? showLeftDrawer : showRightDrawer,
+        side,
+      )}
+    >
+      {items}
+    </Box>
+  );
 };

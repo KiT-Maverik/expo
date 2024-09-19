@@ -1,14 +1,12 @@
 import { Box } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
-import { BannerProvider, useAppSelector, selectAppState } from "App";
+import { BannerProvider } from "App";
 import { Footer, Drawer, Toolbar } from "design/templates";
 
 import style from "./Layout.styles";
 
 export const Layout = () => {
-  const { showLeftDrawer, showRightDrawer } = useAppSelector(selectAppState);
-
   return (
     <>
       <BannerProvider />
@@ -16,9 +14,9 @@ export const Layout = () => {
       <Toolbar />
 
       <Box component="main" sx={style.main}>
-        <Drawer show={showLeftDrawer} side="left" />
+        <Drawer side="left" />
         {<Outlet />}
-        <Drawer show={showRightDrawer} side="right" />
+        <Drawer side="right" />
       </Box>
 
       <Footer />
