@@ -2,42 +2,42 @@ import { SxProps, switchClasses } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 import { blueGrey, yellow, grey } from "@mui/material/colors";
 
-const container: SxProps<Theme> = (theme: Theme) =>
-  ({
-    p: 0,
-    overflow: "visible",
+const container: SxProps<Theme> = {
+  p: 0,
+  overflow: "visible",
 
-    [`.${switchClasses.checked}`]: {
-      [`+.${switchClasses.track}`]: {
-        opacity: 1,
-        backgroundColor: blueGrey["400"],
-      },
-    },
-
-    [`.${switchClasses.switchBase}`]: {
-      height: 1,
-    },
-
-    [`.${switchClasses.thumb}`]: {
-      backgroundColor: yellow["100"],
-
-      ...theme.applyStyles("dark", {
-        backgroundColor: blueGrey["700"],
-      }),
-    },
-    [`.${switchClasses.track}`]: {
-      position: "absolute",
-      top: "50%",
-      width: "auto",
-      left: 9,
-      right: 9,
-      transform: "translateY(-50%)",
+  [`.${switchClasses.checked}`]: {
+    [`+.${switchClasses.track}`]: {
       opacity: 1,
-      height: 24,
-      borderRadius: 12,
+      backgroundColor: blueGrey["400"],
+    },
+
+    [`+.${switchClasses.thumb}`]: {
       backgroundColor: blueGrey["700"],
     },
-  }) as const;
+  },
+
+  [`.${switchClasses.switchBase}`]: {
+    height: 1,
+  },
+
+  [`.${switchClasses.thumb}`]: {
+    backgroundColor: yellow["100"],
+  },
+
+  [`.${switchClasses.track}`]: {
+    position: "absolute",
+    top: "50%",
+    width: "auto",
+    left: 9,
+    right: 9,
+    transform: "translateY(-50%)",
+    opacity: 1,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: blueGrey["700"],
+  },
+} as const;
 
 const icon: { moon: SxProps<Theme>; sun: SxProps<Theme> } = {
   moon: {
