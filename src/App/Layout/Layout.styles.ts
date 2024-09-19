@@ -3,22 +3,6 @@ import { Theme } from "@mui/material/styles";
 
 const drawerWidth = 240;
 
-const smoothChangeMixin: (prop: string) => SxProps<Theme> = (prop) =>
-  ({
-    transition: (theme) =>
-      theme.transitions.create(prop, {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-  }) as const;
-
-const contentArea: SxProps<Theme> = {
-  flexGrow: 1,
-  display: "grid",
-  gridTemplateRows: (theme) =>
-    `${theme.mixins.toolbar.minHeight}px auto ${theme.mixins.toolbar.minHeight}px `,
-} as const;
-
 const main: SxProps<Theme> = {
   display: "flex",
   overflowX: "hidden",
@@ -28,7 +12,6 @@ const main: SxProps<Theme> = {
 const appBar: SxProps<Theme> = {
   position: "relative",
   width: "auto",
-  ...smoothChangeMixin("padding"),
 } as const;
 
 const toolbar: {
@@ -61,6 +44,7 @@ const menuButton: SxProps<Theme> = {
     backgroundColor: (theme) => theme.palette.action.disabledBackground,
   },
 };
+
 export const footer: SxProps<Theme> = {
   px: (theme) => theme.mixins.contentSpacingX.lg,
   backgroundColor: (theme) => theme.palette.background.footer,
@@ -70,7 +54,6 @@ export const footer: SxProps<Theme> = {
 };
 
 export default {
-  contentArea,
   footer,
   appBar,
   toolbar,
