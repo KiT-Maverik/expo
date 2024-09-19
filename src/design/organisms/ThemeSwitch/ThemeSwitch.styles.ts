@@ -7,6 +7,13 @@ const container: SxProps<Theme> = (theme: Theme) =>
     p: 0,
     overflow: "visible",
 
+    [`.${switchClasses.checked}`]: {
+      [`+.${switchClasses.track}`]: {
+        opacity: 1,
+        backgroundColor: blueGrey["400"],
+      },
+    },
+
     [`.${switchClasses.switchBase}`]: {
       height: 1,
     },
@@ -29,11 +36,6 @@ const container: SxProps<Theme> = (theme: Theme) =>
       height: 24,
       borderRadius: 12,
       backgroundColor: blueGrey["700"],
-
-      ...theme.applyStyles("dark", {
-        opacity: 1,
-        backgroundColor: yellow["100"],
-      }),
     },
   }) as const;
 
