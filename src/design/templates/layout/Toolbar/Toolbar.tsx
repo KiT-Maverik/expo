@@ -20,6 +20,7 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "App";
+import { ThemeSwitch } from "design/organisms";
 
 import style from "./Toolbar.styles.ts";
 
@@ -52,6 +53,7 @@ export const Toolbar = () => {
         >
           Toggle Right Drawer
         </Button>
+        <ThemeSwitch />
       </>
     );
   }, [showLeftDrawer, showRightDrawer]);
