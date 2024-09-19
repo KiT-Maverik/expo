@@ -1,8 +1,6 @@
 import { SxProps } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 
-const drawerWidth = 240;
-
 const appBar: SxProps<Theme> = {
   position: "relative",
   width: "auto",
@@ -11,7 +9,7 @@ const appBar: SxProps<Theme> = {
 const menuButton: SxProps<Theme> = {
   display: "flex",
   gap: 3,
-  width: `${drawerWidth}px`,
+  width: (theme) => theme.mixins.drawer.left.width,
   pl: (theme) => theme.mixins.contentSpacingX.lg,
   textAlign: "left",
   position: "absolute",

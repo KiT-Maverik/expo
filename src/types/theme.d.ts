@@ -19,6 +19,11 @@ declare module "@mui/material/styles" {
       lg: number;
       sm: number;
     };
+    drawer: {
+      left: {
+        width: string;
+      };
+    };
   }
 
   interface TypeBackground {
