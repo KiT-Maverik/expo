@@ -15,8 +15,8 @@ interface ContentProps {
   header?: ReactNode;
   head?: ReactNode;
   containerStyle?: SxProps<Theme>;
-  defaultLayout: boolean;
-  defaultSpacing: boolean;
+  defaultLayout?: boolean;
+  defaultSpacing?: boolean;
 }
 
 /**
