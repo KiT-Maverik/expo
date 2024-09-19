@@ -12,7 +12,7 @@ export const ErrorPage = () => {
     <Box sx={style.container}>
       <ErrorIcon sx={style.icon} />
       <Typography variant="h2">Oops, something went wrong!</Typography>
-      {/*<Button onClick={() => navigate(route.home)}>Refresh The Page</Button>*/}
+      {/*<Button onClick={() => navigate(route.home)}>Refresh The Content</Button>*/}
     </Box>
   );
 };

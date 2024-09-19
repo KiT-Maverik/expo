@@ -1,4 +1,4 @@
-import { Typography, StackProps, SxProps, Theme, Box } from "@mui/material";
+import { Typography, SxProps, Theme, Box } from "@mui/material";
 import { ReactNode, useCallback } from "react";
 import { Helmet } from "react-helmet";
 import { ErrorBoundary } from "react-error-boundary";
@@ -7,9 +7,9 @@ import { projectName } from "App";
 import { ErrorPage } from "design/pages";
 import { normalizeSxProps } from "utils";
 
-import style from "./Page.style";
+import style from "./Content.style.ts";
 
-interface PageProps extends StackProps {
+interface ContentProps {
   title?: string;
   children: ReactNode;
   header?: ReactNode;
@@ -20,16 +20,16 @@ interface PageProps extends StackProps {
 }
 
 /**
- * Generic page component
+ * Generic content component
  *
  * This component intended to:
- * - Provide unified layout across the App
+ * - Provide unified content layout
  * - Provide error boundaries
  * - Manage page head
  *
  * Recommended for usage as a wrapper for page-level components
  */
-export const Page = ({
+export const Content = ({
   title,
   header,
   containerStyle,
@@ -37,7 +37,7 @@ export const Page = ({
   head,
   defaultLayout = true,
   defaultSpacing = true,
-}: PageProps) => {
+}: ContentProps) => {
   const renderHeader = useCallback(() => {
     if (header) {
       return header;
