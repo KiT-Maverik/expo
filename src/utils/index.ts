@@ -5,8 +5,9 @@ export * from "./converters/pxToRem.util.ts";
 export * from "./dates/getUtcDateFromIso.util.ts";
 
 // Helpers
-export * from "./helpers/parseJwt.util.ts";
 export * from "./helpers/changeLanguage.util.ts";
+export * from "./helpers/normalizeSxProps.util.ts";
+export * from "./helpers/parseJwt.util.ts";
 
 // Numbers
 export * from "./numbers/prettifyNumber.util.ts";
