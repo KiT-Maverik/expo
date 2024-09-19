@@ -1,4 +1,4 @@
-export * from "./Content/Content.tsx";
+export * from "./layout/Content/Content.tsx";
 
 // Layout
 export * from "./layout/Footer/Footer.tsx";
