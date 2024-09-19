@@ -31,7 +31,7 @@ const container: (show: boolean, side: DrawerSide) => SxProps<Theme> = (
 ) =>
   ({
     ...layoutMixin[side](show),
-    width: "240px",
+    width: (theme) => theme.mixins.drawer.left.width,
   }) as const;
 
 export default {
