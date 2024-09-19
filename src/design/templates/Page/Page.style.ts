@@ -1,16 +1,28 @@
 import { SxProps, Theme } from "@mui/material";
 
-const container: SxProps<Theme> = (theme: Theme) =>
-  ({
-    flexGrow: 1,
-    px: (theme) => theme.mixins.contentSpacingX.sm,
-    py: 5,
+const container: SxProps<Theme> = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 2,
+};
 
-    [theme.breakpoints.up("tablet")]: {
-      px: (theme) => theme.mixins.contentSpacingX.lg,
-    },
-  }) as const;
+const layout: SxProps<Theme> = {
+  display: "flex",
+  flexDirection: "column",
+  gap: 2,
+};
+
+const spacing: SxProps<Theme> = (theme: Theme) => ({
+  px: theme.mixins.contentSpacingX.sm,
+  py: 5,
+
+  [theme.breakpoints.up("tablet")]: {
+    px: theme.mixins.contentSpacingX.lg,
+  },
+});
 
 export default {
   container,
+  layout,
+  spacing,
 };

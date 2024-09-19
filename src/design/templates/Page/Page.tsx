@@ -1,10 +1,11 @@
-import { Stack, Typography, StackProps, SxProps, Theme } from "@mui/material";
+import { Typography, StackProps, SxProps, Theme, Box } from "@mui/material";
 import { ReactNode, useCallback } from "react";
 import { Helmet } from "react-helmet";
 import { ErrorBoundary } from "react-error-boundary";
 
 import { projectName } from "App";
 import { ErrorPage } from "design/pages";
+import { normalizeSxProps } from "utils";
 
 import style from "./Page.style";
 
@@ -14,6 +15,8 @@ interface PageProps extends StackProps {
   header?: ReactNode;
   head?: ReactNode;
   containerStyle?: SxProps<Theme>;
+  defaultLayout: boolean;
+  defaultSpacing: boolean;
 }
 
 /**
@@ -32,6 +35,8 @@ export const Page = ({
   containerStyle,
   children,
   head,
+  defaultLayout = true,
+  defaultSpacing = true,
 }: PageProps) => {
   const renderHeader = useCallback(() => {
     if (header) {
@@ -61,17 +66,17 @@ export const Page = ({
         )}
       </Helmet>
 
-      <Stack
-        sx={[
-          style.container,
-          ...(Array.isArray(containerStyle)
-            ? containerStyle
-            : [containerStyle]),
-        ]}
+      <Box
+        flexGrow={1}
+        sx={normalizeSxProps([
+          defaultLayout && style.layout,
+          defaultSpacing && style.spacing,
+          containerStyle,
+        ])}
       >
         {renderHeader()}
         {children}
-      </Stack>
+      </Box>
     </ErrorBoundary>
   );
 };
