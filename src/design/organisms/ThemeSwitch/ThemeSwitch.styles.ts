@@ -5,6 +5,7 @@ import { blueGrey, yellow, grey } from "@mui/material/colors";
 const container: SxProps<Theme> = (theme: Theme) =>
   ({
     p: 0,
+    overflow: "visible",
 
     [`.${switchClasses.switchBase}`]: {
       height: 1,
@@ -20,6 +21,9 @@ const container: SxProps<Theme> = (theme: Theme) =>
     [`.${switchClasses.track}`]: {
       position: "absolute",
       top: "50%",
+      width: "auto",
+      left: 9,
+      right: 9,
       transform: "translateY(-50%)",
       opacity: 1,
       height: 24,
