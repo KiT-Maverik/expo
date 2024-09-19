@@ -3,7 +3,7 @@ import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import style from "./ErrorPage.styles.ts";
-import {route} from "variables";
+import { route } from "variables";
 
 export const ErrorPage = () => {
   const navigate = useNavigate();
