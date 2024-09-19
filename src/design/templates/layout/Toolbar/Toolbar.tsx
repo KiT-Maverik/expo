@@ -61,7 +61,7 @@ export const Toolbar = ({ contentSet = "default" }: ToolbarProps) => {
         </>
       );
     else return <></>;
-  }, []);
+  }, [showLeftDrawer, showRightDrawer]);
 
   return (
     <Box component="header">
