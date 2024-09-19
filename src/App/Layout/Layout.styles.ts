@@ -3,12 +3,6 @@ import { Theme } from "@mui/material/styles";
 
 const drawerWidth = 240;
 
-const main: SxProps<Theme> = {
-  display: "flex",
-  overflowX: "hidden",
-  flexGrow: 1,
-} as const;
-
 const appBar: SxProps<Theme> = {
   position: "relative",
   width: "auto",
@@ -45,16 +39,13 @@ const menuButton: SxProps<Theme> = {
   },
 };
 
-export const footer: SxProps<Theme> = {
-  px: (theme) => theme.mixins.contentSpacingX.lg,
-  backgroundColor: (theme) => theme.palette.background.footer,
+const main: SxProps<Theme> = {
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-};
+  overflowX: "hidden",
+  flexGrow: 1,
+} as const;
 
 export default {
-  footer,
   appBar,
   toolbar,
   menuButton,
