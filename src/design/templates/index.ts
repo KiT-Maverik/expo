@@ -2,8 +2,7 @@ export * from "./Page/Page";
 
 // Layout
 export * from "./layout/Footer/Footer.tsx";
-export * from "./layout/LeftDrawerContent/LeftDrawerContent.tsx";
-export * from "./layout/RightDrawerContent/RightDrawerContent.tsx";
+export * from "./layout/Drawer/Drawer.tsx";
 export * from "./layout/Toolbar/Toolbar.tsx";
 
 // Modals
