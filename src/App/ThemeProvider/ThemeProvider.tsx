@@ -14,7 +14,7 @@ export interface ThemeContext {
   toggleThemeMode: () => void;
 }
 
-export const Context = createContext({} as ThemeContext);
+export const ThemeContext = createContext({} as ThemeContext);
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -36,8 +36,8 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   );
 
   return (
-    <Context.Provider value={contextValue}>
+    <ThemeContext.Provider value={contextValue}>
       <MUI_ThemeProvider theme={theme(mode)}>{children}</MUI_ThemeProvider>
-    </Context.Provider>
+    </ThemeContext.Provider>
   );
 };
