@@ -14,7 +14,7 @@ export const Layout = () => {
 			<Toolbar />
 
 			<Box component="main" sx={style.main}>
-				<Drawer side="left" />
+				<Drawer side="left" itemsSet="navigation" />
 				{<Outlet />}
 				<Drawer side="right" />
 			</Box>
