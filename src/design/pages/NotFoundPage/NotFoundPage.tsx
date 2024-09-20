@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { route } from 'App'
 import { Content } from 'design/templates'
-import { LANGUAGE } from 'App'
 
 import style from './NotFoundPage.styles.ts'
 
