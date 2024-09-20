@@ -15,6 +15,9 @@ const timerInitialState: ITimerValue = {
 	seconds: 0,
 }
 
+/**
+ * Custom hook that provides a countdown timer to a specified target date.
+ */
 export function useCountdown(target: string) {
 	const [timer, setTimer] = useState<ITimerValue>(timerInitialState)
 	const [isFinished, setFinished] = useState(false)
