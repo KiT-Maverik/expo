@@ -17,8 +17,8 @@ A collection of reusable components, utilities, and tools designed to streamline
 ### Development utilities
 
 -   Linter setup
-- Standalone prettier config
-- Husky scripts
+-   Standalone prettier config
+-   Husky scripts
 -   TS config
 -   indexed db for state management?
 -   Utility types
