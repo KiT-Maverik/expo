@@ -9,9 +9,9 @@ export const Router = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				<Route path={route.home} element={<Layout />}>
+				<Route path={route.home.href} element={<Layout />}>
 					<Route index element={<HomePage />} />
-					<Route path={route.home} element={<PasswordValidatorPage />} />
+					<Route path={route.hooks.passwordValidator.href} element={<PasswordValidatorPage />} />
 					<Route path="*" element={<NotFoundPage />} />
 				</Route>
 			</Routes>
