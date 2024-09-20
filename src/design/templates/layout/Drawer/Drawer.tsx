@@ -1,37 +1,24 @@
-import ChevronRightIcon from '@mui/icons-material/ChevronRight'
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
-import { useMemo } from 'react'
+import { Box } from '@mui/material'
 
 import { selectAppState, useAppSelector } from 'App'
 
 import style from './Drawer.styles.ts'
+import { Navigation } from './items/Navigation.tsx'
 
 export type DrawerSide = 'left' | 'right'
+export type DrawerItemsSet = 'navigation' | 'none'
 
 interface DrawerProps {
 	side: DrawerSide
+	itemsSet?: DrawerItemsSet
 }
 
-export const Drawer = ({ side }: DrawerProps) => {
+export const Drawer = ({ side, itemsSet = 'none' }: DrawerProps) => {
 	const { showLeftDrawer, showRightDrawer } = useAppSelector(selectAppState)
 
-	const items = useMemo(() => {
-		// Add conditional logic here to render various sets of content for various situations
-		return (
-			<List>
-				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text) => (
-					<ListItem key={text} disablePadding>
-						<ListItemButton>
-							<ListItemIcon>
-								<ChevronRightIcon />
-							</ListItemIcon>
-							<ListItemText primary={text} />
-						</ListItemButton>
-					</ListItem>
-				))}
-			</List>
-		)
-	}, [])
-
-	return <Box sx={style.container(side === 'left' ? showLeftDrawer : showRightDrawer, side)}>{items}</Box>
+	return (
+		<Box sx={style.container(side === 'left' ? showLeftDrawer : showRightDrawer, side)}>
+			{itemsSet === 'navigation' && <Navigation />}
+		</Box>
+	)
 }
