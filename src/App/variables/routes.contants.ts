@@ -12,7 +12,7 @@ export enum HOOK_ROUTES {
 }
 
 const root: { [key in ROOT_ROUTES]: Route } = {
-	[ROOT_ROUTES.HOME]: { href: '/password-validator', title: 'Home' },
+	[ROOT_ROUTES.HOME]: { href: '/', title: 'Home' },
 }
 
 const hooks: { [key in HOOK_ROUTES]: Route } = {
