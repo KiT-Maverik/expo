@@ -1,129 +1,129 @@
 import { LANGUAGE } from 'App'
 
 const en = {
-    creditCard: {
-        number: {
+	creditCard: {
+		number: {
 			label: 'Card Number',
 			placeholder: '**** **** **** ****',
-        },
-        cvv: {
+		},
+		cvv: {
 			label: 'CVV',
 			placeholder: '•••',
-        },
-        expiry: {
-            month: {
+		},
+		expiry: {
+			month: {
 				label: 'Month',
 				placeholder: 'MM',
-            },
-            year: {
+			},
+			year: {
 				label: 'Year',
 				placeholder: 'YYYY',
-            },
-        },
-    },
-    user: {
-        email: {
+			},
+		},
+	},
+	user: {
+		email: {
 			label: 'Email',
 			placeholder: 'Enter your email',
-        },
-        name: {
+		},
+		name: {
 			label: 'Name',
 			placeholder: 'Enter your name',
-        },
-        firstName: {
+		},
+		firstName: {
 			label: 'First Name',
 			placeholder: 'Enter your name',
-        },
-        lastName: {
+		},
+		lastName: {
 			label: 'Last Name',
 			placeholder: 'Enter your last name',
-        },
-        password: {
+		},
+		password: {
 			label: 'Password',
 			placeholder: 'Enter your password',
-        },
-        newPassword: {
+		},
+		newPassword: {
 			label: 'New Password',
 			placeholder: 'Enter your new password',
-        },
-        confirmPassword: {
+		},
+		confirmPassword: {
 			label: 'Confirm Password',
 			placeholder: 'Enter your password confirmation',
-        },
-    },
-    address: {
-        zip: {
+		},
+	},
+	address: {
+		zip: {
 			label: 'ZIP Code',
 			placeholder: '#####',
-        },
-    },
-    common: {
+		},
+	},
+	common: {
 		placeholder: 'Type here...',
-    },
+	},
 }
 
 export type InputsLocale = typeof en
 
 const ua: InputsLocale = {
-    creditCard: {
-        number: {
+	creditCard: {
+		number: {
 			label: 'Номер картки',
 			placeholder: '**** **** **** ****',
-        },
-        cvv: {
+		},
+		cvv: {
 			label: 'CVV',
 			placeholder: '•••',
-        },
-        expiry: {
-            month: {
+		},
+		expiry: {
+			month: {
 				label: 'Місяць',
 				placeholder: 'ММ',
-            },
-            year: {
+			},
+			year: {
 				label: 'Рік',
 				placeholder: 'РРРР',
-            },
-        },
-    },
-    user: {
-        email: {
+			},
+		},
+	},
+	user: {
+		email: {
 			label: 'Електронна пошта',
 			placeholder: 'Введіть вашу електронну пошту',
-        },
-        name: {
-            label: "Ім'я",
-            placeholder: "Введіть ваше ім'я",
-        },
-        firstName: {
-            label: "Ім'я",
-            placeholder: "Введіть ваше ім'я",
-        },
-        lastName: {
+		},
+		name: {
+			label: "Ім'я",
+			placeholder: "Введіть ваше ім'я",
+		},
+		firstName: {
+			label: "Ім'я",
+			placeholder: "Введіть ваше ім'я",
+		},
+		lastName: {
 			label: 'Прізвище',
 			placeholder: 'Введіть ваше прізвище',
-        },
-        password: {
+		},
+		password: {
 			label: 'Пароль',
 			placeholder: 'Введіть ваш пароль',
-        },
-        newPassword: {
+		},
+		newPassword: {
 			label: 'Новий пароль',
 			placeholder: 'Введіть ваш новий пароль',
-        },
-        confirmPassword: {
+		},
+		confirmPassword: {
 			label: 'Підтвердження паролю',
 			placeholder: 'Введіть підтвердження паролю',
-        },
-    },
-    address: {
-        zip: {
+		},
+	},
+	address: {
+		zip: {
 			label: 'Поштовий індекс',
 			placeholder: '#####',
-        },
-    },
-    common: {
+		},
+	},
+	common: {
 		placeholder: 'Введіть тут...',
-    },
+	},
 }
 
 export const inputs: { [key in LANGUAGE]: InputsLocale } = { en, ua }

@@ -3,12 +3,12 @@ import { grey } from '@mui/material/colors'
 
 export const paletteLight: PaletteOptions = {
 	mode: 'light',
-    text: {
+	text: {
 		primary: '#545454',
-    },
-    background: {
+	},
+	background: {
 		surface: grey['200'],
 		footer: '#aec5db',
 		accent: '#dfd7d3',
-    },
+	},
 }

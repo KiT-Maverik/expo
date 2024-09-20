@@ -8,11 +8,11 @@ import { route } from 'variables'
 export const ErrorPage = () => {
 	const navigate = useNavigate()
 
-    return (
-        <Box sx={style.container}>
-            <ErrorIcon sx={style.icon} />
-            <Typography variant="h2">Oops, something went wrong!</Typography>
-            {/*<Button onClick={() => navigate(route.home)}>Refresh The Content</Button>*/}
-        </Box>
+	return (
+		<Box sx={style.container}>
+			<ErrorIcon sx={style.icon} />
+			<Typography variant="h2">Oops, something went wrong!</Typography>
+			{/*<Button onClick={() => navigate(route.home)}>Refresh The Content</Button>*/}
+		</Box>
 	)
 }

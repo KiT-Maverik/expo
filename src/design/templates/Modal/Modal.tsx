@@ -1,14 +1,14 @@
 import { ReactNode, useMemo } from 'react'
 import {
-    Box,
-    BoxProps,
-    Modal as MUIModal,
-    Stack,
-    IconButton,
-    Typography,
-    TypographyProps,
-    ModalProps as MuiModalProps,
-    StackProps,
+	Box,
+	BoxProps,
+	Modal as MUIModal,
+	Stack,
+	IconButton,
+	Typography,
+	TypographyProps,
+	ModalProps as MuiModalProps,
+	StackProps,
 } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 import style from './Modal.styles.ts'
@@ -31,24 +31,18 @@ interface ModalProps extends Omit<MuiModalProps, 'children' | 'width'> {
 /**
  * A customizable modal component.
  */
-export const Modal = ({
-    children,
-	layout = 'window',
-    onClose,
-	width = 'md',
-    ContentProps,
-}: ModalProps) => {
-    return (
-        <MUIModal open sx={style.overlay[layout]} onClose={onClose}>
-            <Stack
-                maxWidth={modalWidthParams[width]}
-                sx={style.modal.layout[layout]}
-                data-testid={testId.container}
-                {...ContentProps}
-            >
-                {children}
-            </Stack>
-        </MUIModal>
+export const Modal = ({ children, layout = 'window', onClose, width = 'md', ContentProps }: ModalProps) => {
+	return (
+		<MUIModal open sx={style.overlay[layout]} onClose={onClose}>
+			<Stack
+				maxWidth={modalWidthParams[width]}
+				sx={style.modal.layout[layout]}
+				data-testid={testId.container}
+				{...ContentProps}
+			>
+				{children}
+			</Stack>
+		</MUIModal>
 	)
 }
 
@@ -71,41 +65,32 @@ interface ModalHeaderProps extends BoxProps {
 const Header = (props: ModalHeaderProps) => {
 	const { title, nodeTitle, children, onClose, titleProps, ...rest } = props
 
-    const content = useMemo(() => {
-        if (title)
-            return (
-                <Typography
-                    variant="h5"
-                    flexGrow={1}
-                    {...titleProps}
-                    data-testid={testId.header.title}
-                >
-                    {title}
-                </Typography>
+	const content = useMemo(() => {
+		if (title)
+			return (
+				<Typography variant="h5" flexGrow={1} {...titleProps} data-testid={testId.header.title}>
+					{title}
+				</Typography>
 			)
 		if (children) return children
 		return null
 	}, [children, title])
 
-    const closeButton = useMemo(() => {
+	const closeButton = useMemo(() => {
 		if (!onClose) return null
 
-        return (
-            <IconButton data-testid={testId.header.closeButton} onClick={onClose}>
-                <CloseIcon />
-            </IconButton>
+		return (
+			<IconButton data-testid={testId.header.closeButton} onClick={onClose}>
+				<CloseIcon />
+			</IconButton>
 		)
 	}, [onClose])
 
-    return (
-        <Box
-            sx={style.modal.header(!!title, !!nodeTitle)}
-            {...rest}
-            data-testid={testId.header.container}
-        >
-            {content}
-            {closeButton}
-        </Box>
+	return (
+		<Box sx={style.modal.header(!!title, !!nodeTitle)} {...rest} data-testid={testId.header.container}>
+			{content}
+			{closeButton}
+		</Box>
 	)
 }
 
@@ -113,10 +98,10 @@ const Header = (props: ModalHeaderProps) => {
  * Represents the body section of the Modal.
  */
 const Body = (props: BoxProps) => {
-    return (
-        <Box sx={style.modal.body} {...props} data-testid={testId.body.container}>
-            {props.children}
-        </Box>
+	return (
+		<Box sx={style.modal.body} {...props} data-testid={testId.body.container}>
+			{props.children}
+		</Box>
 	)
 }
 
@@ -126,14 +111,10 @@ const Body = (props: BoxProps) => {
 const Actions = (props: BoxProps) => {
 	if (!props.children) return null
 
-    return (
-        <Box
-            sx={style.modal.actions}
-            {...props}
-            data-testid={testId.actions.container}
-        >
-            {props.children}
-        </Box>
+	return (
+		<Box sx={style.modal.actions} {...props} data-testid={testId.actions.container}>
+			{props.children}
+		</Box>
 	)
 }
 

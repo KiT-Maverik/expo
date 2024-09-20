@@ -1,15 +1,15 @@
 import { LANGUAGE } from 'App'
 
 const en = {
-    auth: {
+	auth: {
 		backToLogin: 'Back to Log In',
 		forgotPassword: 'Forgot password',
 		resetPassword: 'Reset password',
 		signIn: 'Sign in',
 		signOut: 'Sign out',
 		signUp: 'Sign up',
-    },
-    entity: {
+	},
+	entity: {
 		add: 'Add',
 		copy: 'Copy',
 		create: 'Create',
@@ -22,8 +22,8 @@ const en = {
 		remove: 'Remove',
 		rename: 'Rename',
 		select: 'Select',
-    },
-    generic: {
+	},
+	generic: {
 		addPaymentMethod: 'Add payment method',
 		back: 'Back',
 		cancel: 'Cancel',
@@ -31,7 +31,7 @@ const en = {
 		confirm: 'Confirm',
 		copyToClipboard: 'Copy to clipboard',
 		embed: 'Embed',
-        embedOrShare: 'Embed/Share',
+		embedOrShare: 'Embed/Share',
 		ok: 'OK',
 		reFetch: 'Re-Fetch',
 		refresh: 'Refresh',
@@ -42,29 +42,29 @@ const en = {
 		send: 'Send',
 		share: 'Share',
 		withdraw: 'Withdraw',
-    },
+	},
 	refreshThePage: 'Refresh the page',
-    status: {
+	status: {
 		copied: 'Copied',
-    },
-    trial: {
+	},
+	trial: {
 		fourteenDay: 'Start 14 Day Trial',
 		free: 'Start Your Free Trial',
-    },
+	},
 }
 
 export type OperationsLocale = typeof en
 
 const ua: OperationsLocale = {
-    auth: {
+	auth: {
 		backToLogin: 'Повернутися до входу',
 		forgotPassword: 'Забули пароль',
 		resetPassword: 'Скинути пароль',
 		signIn: 'Увійти',
 		signOut: 'Вийти',
 		signUp: 'Зареєструватися',
-    },
-    entity: {
+	},
+	entity: {
 		add: 'Додати',
 		copy: 'Копіювати',
 		create: 'Створити',
@@ -77,8 +77,8 @@ const ua: OperationsLocale = {
 		remove: 'Видалити',
 		rename: 'Перейменувати',
 		select: 'Вибрати',
-    },
-    generic: {
+	},
+	generic: {
 		addPaymentMethod: 'Додати спосіб оплати',
 		back: 'Назад',
 		cancel: 'Скасувати',
@@ -97,15 +97,15 @@ const ua: OperationsLocale = {
 		send: 'Надіслати',
 		share: 'Поділитися',
 		withdraw: 'Вивести',
-    },
+	},
 	refreshThePage: 'Оновити сторінку',
-    status: {
+	status: {
 		copied: 'Скопійовано',
-    },
-    trial: {
+	},
+	trial: {
 		fourteenDay: 'Розпочати 14-денний пробний період',
 		free: 'Розпочати безкоштовний пробний період',
-    },
+	},
 }
 
 export const operations: { [key in LANGUAGE]: OperationsLocale } = { en, ua }

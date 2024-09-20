@@ -7,15 +7,15 @@ const container: SxProps<Theme> = {
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'center',
-    gap: 5,
+	gap: 5,
 } as const
 
 const icon: SxProps<Theme> = {
-    fill: (theme) => theme.palette.error.light,
-    fontSize: 72,
+	fill: (theme) => theme.palette.error.light,
+	fontSize: 72,
 } as const
 
 export default {
-    container,
-    icon,
+	container,
+	icon,
 }

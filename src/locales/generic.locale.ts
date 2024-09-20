@@ -7,8 +7,8 @@ import { messages } from './global/messages'
 
 export const getGenericLocale = (language: LANGUAGE) =>
 	({
-	    dates: dates[language],
-	    inputs: inputs[language],
-	    messages: messages[language],
-	    operations: operations[language],
+		dates: dates[language],
+		inputs: inputs[language],
+		messages: messages[language],
+		operations: operations[language],
 	}) as const

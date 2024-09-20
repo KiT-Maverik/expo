@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { DemoBanner } from './banners/DemoBanner/DemoBanner.tsx'
 
 export const BannerProvider = () => {
-    const content = useMemo(() => {
+	const content = useMemo(() => {
 		const result = []
 
 		if (true) result.push(<DemoBanner key="demoBanner" />)

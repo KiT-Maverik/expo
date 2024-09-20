@@ -16,35 +16,33 @@ export interface ModalProviderState<T extends ModalPropsVariants> {
 
 const initialState: ModalProviderState<ModalPropsVariants> = {
 	type: 'Closed',
-    props: undefined,
+	props: undefined,
 }
 
 export const modalProviderSlice = createSlice({
 	name: 'modal provider',
-    initialState,
-    reducers: {
-        openModal: (_, action: PayloadAction<{ type: ModalWithoutProps }>) => {
+	initialState,
+	reducers: {
+		openModal: (_, action: PayloadAction<{ type: ModalWithoutProps }>) => {
 			const { type } = action.payload
 
-            return {
-                type,
-                props: undefined,
+			return {
+				type,
+				props: undefined,
 			}
-        },
-        openComplexModal: (_, action: PayloadAction<ComplexModalProps>) => {
-            return {
+		},
+		openComplexModal: (_, action: PayloadAction<ComplexModalProps>) => {
+			return {
 				type: 'Complex modal',
-                props: action.payload,
+				props: action.payload,
 			}
-        },
-        closeModal: () => initialState,
-    },
+		},
+		closeModal: () => initialState,
+	},
 })
 
-export const { openComplexModal, openModal, closeModal } =
-	modalProviderSlice.actions
+export const { openComplexModal, openModal, closeModal } = modalProviderSlice.actions
 
-export const selectModalProviderState = (state: RootState) =>
-	state.modalProvider
+export const selectModalProviderState = (state: RootState) => state.modalProvider
 
 export const modalProvider = modalProviderSlice.reducer

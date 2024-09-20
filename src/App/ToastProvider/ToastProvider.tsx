@@ -1,17 +1,5 @@
-import {
-    Alert,
-    type AlertColor,
-    Snackbar,
-    Slide,
-    AlertTitle,
-} from '@mui/material'
-import {
-    createContext,
-    type ReactNode,
-    useCallback,
-    useMemo,
-    useState,
-} from 'react'
+import { Alert, type AlertColor, Snackbar, Slide, AlertTitle } from '@mui/material'
+import { createContext, type ReactNode, useCallback, useMemo, useState } from 'react'
 
 export interface ToastProviderProps {
 	children: ReactNode
@@ -34,47 +22,47 @@ export interface ToastParams {
 const defaults: ToastParams = {
 	type: 'info',
 	message: '',
-    duration: 2000,
+	duration: 2000,
 }
 
 export const ToastProvider = ({ children }: ToastProviderProps) => {
 	const [toast, setToast] = useState<ToastParams>(defaults)
 	const [open, setOpen] = useState(false)
 
-    const showToast = useCallback((params: ToastParams) => {
+	const showToast = useCallback((params: ToastParams) => {
 		setToast({ ...defaults, ...params })
 		setOpen(true)
 	}, [])
 
-    const closeToast = useCallback(() => {
+	const closeToast = useCallback(() => {
 		setOpen(false)
 	}, [])
 
-    const contextValue = useMemo<ToastContext>(
-        () => ({
-            showToast,
-            closeToast,
-        }),
-        [showToast, closeToast],
+	const contextValue = useMemo<ToastContext>(
+		() => ({
+			showToast,
+			closeToast,
+		}),
+		[showToast, closeToast],
 	)
 
 	const { message, title, duration, type } = toast
 
-    return (
-        <Context.Provider value={contextValue}>
-            <Snackbar
-                open={open}
-                onClose={closeToast}
-                autoHideDuration={duration}
-                TransitionComponent={Slide}
+	return (
+		<Context.Provider value={contextValue}>
+			<Snackbar
+				open={open}
+				onClose={closeToast}
+				autoHideDuration={duration}
+				TransitionComponent={Slide}
 				anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-            >
-                <Alert severity={type}>
-                    {title && <AlertTitle>{title}</AlertTitle>}
-                    {message}
-                </Alert>
-            </Snackbar>
-            {children}
-        </Context.Provider>
+			>
+				<Alert severity={type}>
+					{title && <AlertTitle>{title}</AlertTitle>}
+					{message}
+				</Alert>
+			</Snackbar>
+			{children}
+		</Context.Provider>
 	)
 }

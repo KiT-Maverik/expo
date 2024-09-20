@@ -7,19 +7,19 @@ import { Footer, Drawer, Toolbar } from 'design/templates'
 import style from './Layout.styles'
 
 export const Layout = () => {
-    return (
-        <>
-            <BannerProvider />
+	return (
+		<>
+			<BannerProvider />
 
-            <Toolbar />
+			<Toolbar />
 
-            <Box component="main" sx={style.main}>
-                <Drawer side="left" />
-                {<Outlet />}
-                <Drawer side="right" />
-            </Box>
+			<Box component="main" sx={style.main}>
+				<Drawer side="left" />
+				{<Outlet />}
+				<Drawer side="right" />
+			</Box>
 
-            <Footer />
-        </>
+			<Footer />
+		</>
 	)
 }

@@ -12,17 +12,17 @@ const sampleElement = <Box data-testid={sampleTestId}>{sampleContent}</Box>
 
 describe(testSuite.element.template, () => {
 	describe('Modal', () => {
-        describe(testSuite.healthCheck, () => {
-            it(testName.renderIsOk, () => {
+		describe(testSuite.healthCheck, () => {
+			it(testName.renderIsOk, () => {
 				const mockOnClose = jest.fn()
-                const { queryByTestId } = render(
+				const { queryByTestId } = render(
 					<MemoryRouter initialEntries={['/']}>
-                        <Modal open={true} onClose={mockOnClose}>
-                            <Modal.Header title={sampleContent} />
-                            <Modal.Body>{sampleElement}</Modal.Body>
-                            <Modal.Actions>{sampleElement}</Modal.Actions>
-                        </Modal>
-                    </MemoryRouter>,
+						<Modal open={true} onClose={mockOnClose}>
+							<Modal.Header title={sampleContent} />
+							<Modal.Body>{sampleElement}</Modal.Body>
+							<Modal.Actions>{sampleElement}</Modal.Actions>
+						</Modal>
+					</MemoryRouter>,
 				)
 
 				expect(queryByTestId(testId.container)).toBeInTheDocument()
@@ -36,15 +36,11 @@ describe(testSuite.element.template, () => {
 			it('handles title prop correctly', () => {
 				const { queryByTestId } = render(<Modal.Header title={sampleContent} />)
 
-                expect(queryByTestId(testId.header.title)).toHaveTextContent(
-                    sampleContent,
-				)
+				expect(queryByTestId(testId.header.title)).toHaveTextContent(sampleContent)
 			})
 
 			it('handles children prop correctly', () => {
-                const { queryByTestId } = render(
-                    <Modal.Header>{sampleElement}</Modal.Header>,
-				)
+				const { queryByTestId } = render(<Modal.Header>{sampleElement}</Modal.Header>)
 
 				expect(queryByTestId(testId.header.title)).toBeNull()
 				expect(queryByTestId(sampleTestId)).toHaveTextContent(sampleContent)
@@ -52,18 +48,14 @@ describe(testSuite.element.template, () => {
 
 			it('renders close button when onClose prop is provided', () => {
 				const mockOnClose = jest.fn()
-                const { queryByTestId } = render(
-                    <Modal.Header title={sampleContent} onClose={mockOnClose} />,
-				)
+				const { queryByTestId } = render(<Modal.Header title={sampleContent} onClose={mockOnClose} />)
 
 				expect(queryByTestId(testId.header.closeButton)).toBeInTheDocument()
 			})
 
 			it('trigger onClose when close button is clicked', () => {
 				const mockOnClose = jest.fn()
-                const { queryByTestId } = render(
-                    <Modal.Header title={sampleContent} onClose={mockOnClose} />,
-				)
+				const { queryByTestId } = render(<Modal.Header title={sampleContent} onClose={mockOnClose} />)
 
 				fireEvent.click(queryByTestId(testId.header.closeButton)!)
 				expect(mockOnClose).toHaveBeenCalled()
@@ -78,9 +70,7 @@ describe(testSuite.element.template, () => {
 
 		describe('Actions', () => {
 			it('should render children', () => {
-                const { queryByTestId } = render(
-                    <Modal.Actions>{sampleElement}</Modal.Actions>,
-				)
+				const { queryByTestId } = render(<Modal.Actions>{sampleElement}</Modal.Actions>)
 
 				expect(queryByTestId(sampleTestId)).toBeInTheDocument()
 			})

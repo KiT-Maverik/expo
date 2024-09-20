@@ -9,10 +9,10 @@ export interface ITimerValue {
 }
 
 const timerInitialState: ITimerValue = {
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
+	days: 0,
+	hours: 0,
+	minutes: 0,
+	seconds: 0,
 }
 
 export function useCountdown(target: string) {
@@ -20,26 +20,26 @@ export function useCountdown(target: string) {
 	const [isFinished, setFinished] = useState(false)
 	const endDate = moment(target)
 
-    const calculateTimeLeft = useCallback(() => {
+	const calculateTimeLeft = useCallback(() => {
 		const diff = endDate.diff(moment())
 		const duration = moment.duration(diff)
-        const diffTime = {
+		const diffTime = {
 			days: endDate.diff(moment(), 'days'),
-            hours: duration.hours(),
-            minutes: duration.minutes(),
-            seconds: duration.seconds(),
+			hours: duration.hours(),
+			minutes: duration.minutes(),
+			seconds: duration.seconds(),
 		}
 		setTimer(diffTime)
 	}, [endDate])
 
-    useEffect(() => {
+	useEffect(() => {
 		let interval: NodeJS.Timer
 
-        if (moment().isBefore(endDate)) {
+		if (moment().isBefore(endDate)) {
 			interval = setInterval(calculateTimeLeft, 1000)
-        } else {
+		} else {
 			setFinished(true)
-        }
+		}
 
 		return () => interval && clearInterval(interval)
 	}, [calculateTimeLeft, endDate])

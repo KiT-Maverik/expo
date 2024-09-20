@@ -1,7 +1,7 @@
 import { LANGUAGE } from 'App'
 
 const en = {
-    weekday: [
+	weekday: [
 		{ abbreviation: 'Mon', name: 'Monday' },
 		{ abbreviation: 'Tue', name: 'Tuesday' },
 		{ abbreviation: 'Wed', name: 'Wednesday' },
@@ -9,8 +9,8 @@ const en = {
 		{ abbreviation: 'Fri', name: 'Friday' },
 		{ abbreviation: 'Sat', name: 'Saturday' },
 		{ abbreviation: 'Sun', name: 'Sunday' },
-    ],
-    month: [
+	],
+	month: [
 		{ abbreviation: 'Jan', name: 'January' },
 		{ abbreviation: 'Feb', name: 'February' },
 		{ abbreviation: 'Mar', name: 'March' },
@@ -23,13 +23,13 @@ const en = {
 		{ abbreviation: 'Oct', name: 'October' },
 		{ abbreviation: 'Nov', name: 'November' },
 		{ abbreviation: 'Dec', name: 'December' },
-    ],
+	],
 }
 
 export type DatesLocale = typeof en
 
 const ua: DatesLocale = {
-    weekday: [
+	weekday: [
 		{ abbreviation: 'Пн', name: 'Понеділок' },
 		{ abbreviation: 'Вт', name: 'Вівторок' },
 		{ abbreviation: 'Ср', name: 'Середа' },
@@ -37,8 +37,8 @@ const ua: DatesLocale = {
 		{ abbreviation: 'Пт', name: "П'ятниця" },
 		{ abbreviation: 'Сб', name: 'Субота' },
 		{ abbreviation: 'Нд', name: 'Неділя' },
-    ],
-    month: [
+	],
+	month: [
 		{ abbreviation: 'Січ', name: 'Січень' },
 		{ abbreviation: 'Лют', name: 'Лютий' },
 		{ abbreviation: 'Бер', name: 'Березень' },
@@ -51,7 +51,7 @@ const ua: DatesLocale = {
 		{ abbreviation: 'Жов', name: 'Жовтень' },
 		{ abbreviation: 'Лис', name: 'Листопад' },
 		{ abbreviation: 'Гру', name: 'Грудень' },
-    ],
+	],
 }
 
 export const dates: { [key in LANGUAGE]: DatesLocale } = { en, ua }

@@ -2,19 +2,19 @@
  * Parses a JSON Web Token (JWT) and returns its payload as a JavaScript object.
  */
 export const parseJwt = (token?: string) => {
-    if (!token) {
+	if (!token) {
 		return null
-    }
+	}
 
 	const base64Url = token.split('.')[1]
 	const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-    const jsonPayload = decodeURIComponent(
-        window
-            .atob(base64)
+	const jsonPayload = decodeURIComponent(
+		window
+			.atob(base64)
 			.split('')
-            .map(function (c) {
+			.map(function (c) {
 				return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-            })
+			})
 			.join(''),
 	)
 

@@ -7,20 +7,20 @@ import { modalProvider } from './ModalProvider/ModalProvider.slice.ts'
 import { app } from './App.slice.ts'
 
 const reducers = combineReducers({
-    app,
-    modalProvider,
+	app,
+	modalProvider,
 })
 
 const persistConfig = {
 	key: 'root',
-    storage,
-    whitelist: [],
+	storage,
+	whitelist: [],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)
 
 export const appStore = configureStore({
-    reducer: persistedReducer,
+	reducer: persistedReducer,
 })
 
 export const persistor = persistStore(appStore)

@@ -8,12 +8,12 @@ import { useThemeProvider } from 'App/ThemeProvider/ThemeProvider.hooks.ts'
 export const ThemeSwitch = () => {
 	const { toggleThemeMode } = useThemeProvider()
 
-    return (
-        <Switch
-            sx={style.container}
-            onChange={toggleThemeMode}
-            checkedIcon={<MoonIcon sx={style.icon.moon} />}
-            icon={<SunIcon sx={style.icon.sun} />}
-        />
+	return (
+		<Switch
+			sx={style.container}
+			onChange={toggleThemeMode}
+			checkedIcon={<MoonIcon sx={style.icon.moon} />}
+			icon={<SunIcon sx={style.icon.sun} />}
+		/>
 	)
 }

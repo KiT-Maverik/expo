@@ -30,53 +30,41 @@ interface ContentProps {
  * Recommended for usage as a wrapper for page-level components
  */
 export const Content = ({
-    title,
-    header,
-    containerStyle,
-    children,
-    head,
-    defaultLayout = true,
-    defaultSpacing = true,
+	title,
+	header,
+	containerStyle,
+	children,
+	head,
+	defaultLayout = true,
+	defaultSpacing = true,
 }: ContentProps) => {
-    const renderHeader = useCallback(() => {
-        if (header) {
+	const renderHeader = useCallback(() => {
+		if (header) {
 			return header
-        }
+		}
 
-        if (title) {
-            return (
-                <Typography variant="h4" component="h1">
-                    {title}
-                </Typography>
+		if (title) {
+			return (
+				<Typography variant="h4" component="h1">
+					{title}
+				</Typography>
 			)
-        }
+		}
 
 		return null
 	}, [title, header])
 
-    return (
-        <ErrorBoundary fallbackRender={() => <ErrorPage />}>
-            <Helmet>
-                {head ? (
-                    head
-                ) : (
-                    <title>
-                        {title ? `${title} | ${projectName}` : `${projectName}`}
-                    </title>
-                )}
-            </Helmet>
+	return (
+		<ErrorBoundary fallbackRender={() => <ErrorPage />}>
+			<Helmet>{head ? head : <title>{title ? `${title} | ${projectName}` : `${projectName}`}</title>}</Helmet>
 
-            <Box
-                flexGrow={1}
-                sx={normalizeSxProps([
-                    defaultLayout && style.layout,
-                    defaultSpacing && style.spacing,
-                    containerStyle,
-                ])}
-            >
-                {renderHeader()}
-                {children}
-            </Box>
-        </ErrorBoundary>
+			<Box
+				flexGrow={1}
+				sx={normalizeSxProps([defaultLayout && style.layout, defaultSpacing && style.spacing, containerStyle])}
+			>
+				{renderHeader()}
+				{children}
+			</Box>
+		</ErrorBoundary>
 	)
 }

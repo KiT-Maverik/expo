@@ -1,13 +1,4 @@
-export const colors = [
-	'default',
-	'primary',
-	'tertiary',
-	'secondary',
-	'error',
-	'warning',
-	'info',
-	'success',
-] as const
+export const colors = ['default', 'primary', 'tertiary', 'secondary', 'error', 'warning', 'info', 'success'] as const
 export type Color = (typeof colors)[number]
 
 export const sizes = ['small', 'medium', 'large'] as const
@@ -31,5 +22,6 @@ export type T_TodoAny = any
  * type D = ArrayElement<["foo", "bar"]>; // "foo" | "bar"
  * type E = ArrayElement<(P | (Q | R))[]>; // P | Q | R
  */
-export type ArrayElement<ArrayType extends readonly unknown[]> =
-	ArrayType extends readonly (infer ElementType)[] ? ElementType : never
+export type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends readonly (infer ElementType)[]
+	? ElementType
+	: never

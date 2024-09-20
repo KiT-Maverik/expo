@@ -9,12 +9,12 @@ import { typography } from './typography'
 import { mixins } from './mixins.ts'
 
 export const theme = (mode: PaletteMode) =>
-    createTheme({
-        breakpoints,
-        components,
-        mixins,
+	createTheme({
+		breakpoints,
+		components,
+		mixins,
 		palette: mode === 'light' ? paletteLight : paletteDark,
-        shape,
-        spacing: 4,
-        typography,
+		shape,
+		spacing: 4,
+		typography,
 	})

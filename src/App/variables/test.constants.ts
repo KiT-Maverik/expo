@@ -6,19 +6,19 @@ export const testSuite = {
 	contractValidation: 'Contract validation',
 	healthCheck: 'Health check',
 	integration: 'Integration',
-    element: {
+	element: {
 		atoms: 'Atom',
 		molecule: 'Molecule',
 		organism: 'Organism',
 		template: 'Template',
 		page: 'Page',
-    },
-    entity: {
+	},
+	entity: {
 		hook: 'Hook',
-    },
-    page: {
+	},
+	page: {
 		agencyAccount: 'Agency account page',
-    },
+	},
 } as const
 
 /**

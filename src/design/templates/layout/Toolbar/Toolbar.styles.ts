@@ -8,37 +8,37 @@ const appBar: SxProps<Theme> = {
 
 const menuButton: SxProps<Theme> = {
 	display: 'flex',
-    gap: 3,
-    width: (theme) => theme.mixins.drawer.left.width,
-    pl: (theme) => theme.mixins.contentSpacingX.lg,
+	gap: 3,
+	width: (theme) => theme.mixins.drawer.left.width,
+	pl: (theme) => theme.mixins.contentSpacingX.lg,
 	textAlign: 'left',
 	position: 'absolute',
 	alignItems: 'center',
-    minHeight: (theme) => theme.mixins.toolbar,
+	minHeight: (theme) => theme.mixins.toolbar,
 
 	':hover': {
-        backgroundColor: (theme) => theme.palette.action.disabledBackground,
-    },
+		backgroundColor: (theme) => theme.palette.action.disabledBackground,
+	},
 } as const
 
 const toolbar: {
 	container: SxProps<Theme>
 	loader: SxProps<Theme>
 } = {
-    container: {
+	container: {
 		display: 'flex',
 		justifyContent: 'space-between',
-    },
-    loader: {
+	},
+	loader: {
 		position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0,
-    },
+		left: 0,
+		right: 0,
+		bottom: 0,
+	},
 } as const
 
 export default {
-    appBar,
-    menuButton,
-    toolbar,
+	appBar,
+	menuButton,
+	toolbar,
 }

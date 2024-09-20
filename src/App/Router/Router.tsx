@@ -5,14 +5,14 @@ import { Layout } from '../Layout/Layout'
 import { HomePage, NotFoundPage } from 'design/pages'
 
 export const Router = () => {
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path={route.home} element={<Layout />}>
-                    <Route index element={<HomePage />} />
-                    <Route path="*" element={<NotFoundPage />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+	return (
+		<BrowserRouter>
+			<Routes>
+				<Route path={route.home} element={<Layout />}>
+					<Route index element={<HomePage />} />
+					<Route path="*" element={<NotFoundPage />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	)
 }

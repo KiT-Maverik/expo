@@ -27,41 +27,38 @@ export const AppSettings = createContext({} as AppSettings)
 export const App = () => {
 	const appSettings = useMemo<AppSettings>(() => ({ language: 'sample' }), [])
 
-    i18n.use(initReactI18next).init({
-        resources: {
-            [LANGUAGE.ENGLISH]: getLocale(LANGUAGE.ENGLISH),
-            [LANGUAGE.UKRAINIAN]: getLocale(LANGUAGE.UKRAINIAN),
-        },
-        lng: (() => {
+	i18n.use(initReactI18next).init({
+		resources: {
+			[LANGUAGE.ENGLISH]: getLocale(LANGUAGE.ENGLISH),
+			[LANGUAGE.UKRAINIAN]: getLocale(LANGUAGE.UKRAINIAN),
+		},
+		lng: (() => {
 			const localeKey = localStorage.getItem(localStorageKey.language)
 
-            if (
-                !localeKey ||
-				!Object.values(LANGUAGE).includes(localeKey as LANGUAGE)
-            ) {
+			if (!localeKey || !Object.values(LANGUAGE).includes(localeKey as LANGUAGE)) {
 				localStorage.setItem(localStorageKey.language, LANGUAGE.ENGLISH)
 				return LANGUAGE.ENGLISH
 			} else return localeKey
-        })(),
-        fallbackLng: LANGUAGE.ENGLISH,
+		})(),
+		fallbackLng: LANGUAGE.ENGLISH,
 
-        interpolation: {
-            escapeValue: false,
-        },
+		interpolation: {
+			escapeValue: false,
+		},
 	})
 
-    return (
-        <AppSettings.Provider value={appSettings}>
-            <StoreProvider store={appStore}>
-                <CssBaseline />
-                <ThemeProvider>
-                    <GlobalStyles styles={globalStyles} />
-                    <ToastProvider>
-                        <Router />
-                    </ToastProvider>
-                    <ModalProvider />
-                </ThemeProvider>
-            </StoreProvider>
-        </AppSettings.Provider>
+	return (
+		<AppSettings.Provider value={appSettings}>
+			<StoreProvider store={appStore}>
+				<CssBaseline />
+				<ThemeProvider>
+					<GlobalStyles styles={globalStyles} />
+					<ToastProvider>
+						<Router />
+					</ToastProvider>
+					<ModalProvider />
+				</ThemeProvider>
+			</StoreProvider>
+		</AppSettings.Provider>
 	)
 }

@@ -17,21 +17,21 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
 	const [mode, setMode] = useState<PaletteMode>('light')
 
-    const toggleThemeMode = useCallback(() => {
+	const toggleThemeMode = useCallback(() => {
 		setMode(mode === 'light' ? 'dark' : 'light')
 	}, [mode])
 
-    const contextValue = useMemo(
-        () => ({
-            toggleThemeMode,
-            theme: mode,
-        }),
-        [mode],
+	const contextValue = useMemo(
+		() => ({
+			toggleThemeMode,
+			theme: mode,
+		}),
+		[mode],
 	)
 
-    return (
-        <ThemeContext.Provider value={contextValue}>
-            <MUI_ThemeProvider theme={theme(mode)}>{children}</MUI_ThemeProvider>
-        </ThemeContext.Provider>
+	return (
+		<ThemeContext.Provider value={contextValue}>
+			<MUI_ThemeProvider theme={theme(mode)}>{children}</MUI_ThemeProvider>
+		</ThemeContext.Provider>
 	)
 }
