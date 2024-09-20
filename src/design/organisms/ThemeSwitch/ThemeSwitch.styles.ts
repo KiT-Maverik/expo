@@ -11,18 +11,10 @@ const container: SxProps<Theme> = {
 			opacity: 1,
 			backgroundColor: blueGrey['400'],
 		},
-
-		[`+.${switchClasses.thumb}`]: {
-			backgroundColor: blueGrey['700'],
-		},
 	},
 
 	[`.${switchClasses.switchBase}`]: {
 		height: 1,
-	},
-
-	[`.${switchClasses.thumb}`]: {
-		backgroundColor: yellow['100'],
 	},
 
 	[`.${switchClasses.track}`]: {
@@ -47,7 +39,7 @@ const icon: { moon: SxProps<Theme>; sun: SxProps<Theme> } = {
 	},
 	sun: {
 		fill: yellow['600'],
-		backgroundColor: yellow['100'],
+		backgroundColor: (theme) => theme.palette.common.white,
 		borderRadius: '50%',
 		padding: 0.5,
 	},
