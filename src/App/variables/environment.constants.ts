@@ -1,6 +1,6 @@
-export const projectName = "Expo";
+export const projectName = 'Expo'
 
 export enum LANGUAGE {
-  ENGLISH = "en",
-  UKRAINIAN = "ua",
+	ENGLISH = 'en',
+	UKRAINIAN = 'ua',
 }

@@ -1,50 +1,50 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { type RootState } from "App/App.store.ts";
-import { ComplexModalProps } from "design/templates";
+import { type RootState } from 'App/App.store.ts'
+import { ComplexModalProps } from 'design/templates'
 
-type Modal = "Simple modal" | "Complex modal" | "Closed";
+type Modal = 'Simple modal' | 'Complex modal' | 'Closed'
 
-type ModalWithoutProps = Exclude<Modal, "Simple modal" | "Closed">;
+type ModalWithoutProps = Exclude<Modal, 'Simple modal' | 'Closed'>
 
-type ModalPropsVariants = ComplexModalProps | undefined;
+type ModalPropsVariants = ComplexModalProps | undefined
 
 export interface ModalProviderState<T extends ModalPropsVariants> {
-  type: Modal;
-  props: T;
+	type: Modal
+	props: T
 }
 
 const initialState: ModalProviderState<ModalPropsVariants> = {
-  type: "Closed",
-  props: undefined,
-};
+	type: 'Closed',
+    props: undefined,
+}
 
 export const modalProviderSlice = createSlice({
-  name: "modal provider",
-  initialState,
-  reducers: {
-    openModal: (_, action: PayloadAction<{ type: ModalWithoutProps }>) => {
-      const { type } = action.payload;
+	name: 'modal provider',
+    initialState,
+    reducers: {
+        openModal: (_, action: PayloadAction<{ type: ModalWithoutProps }>) => {
+			const { type } = action.payload
 
-      return {
-        type,
-        props: undefined,
-      };
+            return {
+                type,
+                props: undefined,
+			}
+        },
+        openComplexModal: (_, action: PayloadAction<ComplexModalProps>) => {
+            return {
+				type: 'Complex modal',
+                props: action.payload,
+			}
+        },
+        closeModal: () => initialState,
     },
-    openComplexModal: (_, action: PayloadAction<ComplexModalProps>) => {
-      return {
-        type: "Complex modal",
-        props: action.payload,
-      };
-    },
-    closeModal: () => initialState,
-  },
-});
+})
 
 export const { openComplexModal, openModal, closeModal } =
-  modalProviderSlice.actions;
+	modalProviderSlice.actions
 
 export const selectModalProviderState = (state: RootState) =>
-  state.modalProvider;
+	state.modalProvider
 
-export const modalProvider = modalProviderSlice.reducer;
+export const modalProvider = modalProviderSlice.reducer

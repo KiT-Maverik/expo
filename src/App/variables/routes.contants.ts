@@ -1,3 +1,3 @@
 export const route = {
-  home: "/",
-} as const;
+	home: '/',
+} as const

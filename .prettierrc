@@ -1,0 +1,9 @@
+{
+	"editorconfig": true,
+	"singleQuote": true,
+  "useTabs": true,
+  "tabWidth": 4,
+  "semi": false,
+	"printWidth": 120,
+	"bracketSpacing": true
+}

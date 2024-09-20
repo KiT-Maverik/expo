@@ -1,8 +1,8 @@
-import { PaletteOptions } from "@mui/material";
+import { PaletteOptions } from '@mui/material'
 
 export const paletteDark: PaletteOptions = {
-  mode: "dark",
-  text: {
-    primary: "#FFF",
-  },
-};
+	mode: 'dark',
+    text: {
+		primary: '#FFF',
+    },
+}

@@ -5,5 +5,5 @@
  * 1234567890 => 1,234,567,890
  */
 export function prettifyNumber(value: number): string {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }

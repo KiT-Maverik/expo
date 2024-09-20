@@ -1,31 +1,31 @@
-import { Button } from "@mui/material";
+import { Button } from '@mui/material'
 
-import { Modal, useHandleModalClose } from "design/templates";
+import { Modal, useHandleModalClose } from 'design/templates'
 import {
-  ModalProviderState,
-  selectModalProviderState,
-  useAppSelector,
-} from "App";
+    ModalProviderState,
+    selectModalProviderState,
+    useAppSelector,
+} from 'App'
 
 export interface ComplexModalProps {
-  title: string;
+	title: string
 }
 
 export const ComplexModal = () => {
-  const { handleModalClose } = useHandleModalClose();
-  const { props } = useAppSelector(
-    selectModalProviderState,
-  ) as ModalProviderState<ComplexModalProps>;
+	const { handleModalClose } = useHandleModalClose()
+    const { props } = useAppSelector(
+        selectModalProviderState,
+	) as ModalProviderState<ComplexModalProps>
 
-  return (
-    <Modal open onClose={handleModalClose} width="md">
-      <Modal.Header onClose={handleModalClose} title={props.title} />
-      <Modal.Body>This modal has props</Modal.Body>
-      <Modal.Actions>
-        <Button variant="outlined" onClick={handleModalClose}>
-          Close
-        </Button>
-      </Modal.Actions>
-    </Modal>
-  );
-};
+    return (
+        <Modal open onClose={handleModalClose} width="md">
+            <Modal.Header onClose={handleModalClose} title={props.title} />
+            <Modal.Body>This modal has props</Modal.Body>
+            <Modal.Actions>
+                <Button variant="outlined" onClick={handleModalClose}>
+					Close
+                </Button>
+            </Modal.Actions>
+        </Modal>
+	)
+}

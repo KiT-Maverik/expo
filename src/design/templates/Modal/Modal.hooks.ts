@@ -1,10 +1,10 @@
-import { closeModal, useAppDispatch } from "App";
-import { useCallback } from "react";
+import { closeModal, useAppDispatch } from 'App'
+import { useCallback } from 'react'
 
 export const useHandleModalClose = () => {
-  const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch()
 
-  const handleModalClose = useCallback(() => dispatch(closeModal()), []);
+	const handleModalClose = useCallback(() => dispatch(closeModal()), [])
 
-  return { handleModalClose };
-};
+	return { handleModalClose }
+}

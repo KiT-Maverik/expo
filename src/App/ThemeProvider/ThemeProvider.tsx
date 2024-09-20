@@ -1,43 +1,37 @@
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useMemo,
-  useState,
-} from "react";
-import { PaletteMode, ThemeProvider as MUI_ThemeProvider } from "@mui/material";
+import { createContext, ReactNode, useCallback, useMemo, useState } from 'react'
+import { PaletteMode, ThemeProvider as MUI_ThemeProvider } from '@mui/material'
 
-import { theme } from "styles";
+import { theme } from 'styles'
 
 export interface ThemeContext {
-  theme: PaletteMode;
-  toggleThemeMode: () => void;
+	theme: PaletteMode
+	toggleThemeMode: () => void
 }
 
-export const ThemeContext = createContext({} as ThemeContext);
+export const ThemeContext = createContext({} as ThemeContext)
 
 interface ThemeProviderProps {
-  children: ReactNode;
+	children: ReactNode
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  const [mode, setMode] = useState<PaletteMode>("light");
+	const [mode, setMode] = useState<PaletteMode>('light')
 
-  const toggleThemeMode = useCallback(() => {
-    setMode(mode === "light" ? "dark" : "light");
-  }, [mode]);
+    const toggleThemeMode = useCallback(() => {
+		setMode(mode === 'light' ? 'dark' : 'light')
+	}, [mode])
 
-  const contextValue = useMemo(
-    () => ({
-      toggleThemeMode,
-      theme: mode,
-    }),
-    [mode],
-  );
+    const contextValue = useMemo(
+        () => ({
+            toggleThemeMode,
+            theme: mode,
+        }),
+        [mode],
+	)
 
-  return (
-    <ThemeContext.Provider value={contextValue}>
-      <MUI_ThemeProvider theme={theme(mode)}>{children}</MUI_ThemeProvider>
-    </ThemeContext.Provider>
-  );
-};
+    return (
+        <ThemeContext.Provider value={contextValue}>
+            <MUI_ThemeProvider theme={theme(mode)}>{children}</MUI_ThemeProvider>
+        </ThemeContext.Provider>
+	)
+}

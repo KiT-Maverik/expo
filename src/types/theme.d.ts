@@ -1,61 +1,61 @@
-import { PaletteColorOptions } from "@mui/material";
-import { ThemeShape } from "styles/theme/shape";
+import { PaletteColorOptions } from '@mui/material'
+import { ThemeShape } from 'styles/theme/shape'
 
-declare module "@mui/material/styles" {
-  export interface Theme {
-    shape: ThemeShape;
-  }
+declare module '@mui/material/styles' {
+	export interface Theme {
+		shape: ThemeShape
+	}
 
-  export interface ThemeOptions {
-    shape?: ThemeShape;
-  }
+	export interface ThemeOptions {
+		shape?: ThemeShape
+	}
 
-  interface CommonColors {
-    tertiaryOutlinedBorder?: string;
-  }
+	interface CommonColors {
+		tertiaryOutlinedBorder?: string
+	}
 
-  interface Mixins {
-    contentSpacingX: {
-      lg: number;
-      sm: number;
-    };
-    drawer: {
-      left: {
-        width: string;
-      };
-    };
-  }
+	interface Mixins {
+		contentSpacingX: {
+			lg: number
+			sm: number
+		}
+		drawer: {
+			left: {
+				width: string
+			}
+		}
+	}
 
-  interface TypeBackground {
-    surface: string;
-    footer: string;
-    accent: string;
-  }
-  interface PaletteOptions {
-    tertiary?: PaletteColorOptions;
-    accent?: PaletteColorOptions;
-  }
-  interface Palette {
-    tertiary: Palette["primary"];
-    accent: Palette["primary"];
-  }
+	interface TypeBackground {
+		surface: string
+		footer: string
+		accent: string
+	}
+	interface PaletteOptions {
+		tertiary?: PaletteColorOptions
+		accent?: PaletteColorOptions
+	}
+	interface Palette {
+		tertiary: Palette['primary']
+		accent: Palette['primary']
+	}
 
-  interface BreakpointOverrides {
-    xs: false; // removes the `xs` breakpoint
-    sm: false;
-    md: false;
-    lg: false;
-    xl: false;
-    mobile: true; // adds the `mobile` breakpoint
-    tablet: true;
-    laptop: true;
-    desktop: true;
-    fullWidth: true;
-  }
+	interface BreakpointOverrides {
+		xs: false // removes the `xs` breakpoint
+		sm: false
+		md: false
+		lg: false
+		xl: false
+		mobile: true // adds the `mobile` breakpoint
+		tablet: true
+		laptop: true
+		desktop: true
+		fullWidth: true
+	}
 }
 
-declare module "@mui/material/Alert" {
-  interface AlertProps {
-    mode?: "alert" | "banner";
-  }
+declare module '@mui/material/Alert' {
+	interface AlertProps {
+		mode?: 'alert' | 'banner'
+	}
 }

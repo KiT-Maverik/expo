@@ -1,5 +1,5 @@
-import { localStorageKey } from "variables";
+import { localStorageKey } from 'variables'
 
 export const useLogout = () => {
-  localStorage.removeItem(localStorageKey.token);
-};
+	localStorage.removeItem(localStorageKey.token)
+}

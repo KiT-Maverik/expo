@@ -1,1 +1,1 @@
-export * from "./useCopyToClipboard.hook";
+export * from './useCopyToClipboard.hook'

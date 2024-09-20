@@ -1,18 +1,18 @@
-import { Box } from "@mui/material";
-import { useMemo } from "react";
+import { Box } from '@mui/material'
+import { useMemo } from 'react'
 
-import { DemoBanner } from "./banners/DemoBanner/DemoBanner.tsx";
+import { DemoBanner } from './banners/DemoBanner/DemoBanner.tsx'
 
 export const BannerProvider = () => {
-  const content = useMemo(() => {
-    const result = [];
+    const content = useMemo(() => {
+		const result = []
 
-    if (true) result.push(<DemoBanner key="demoBanner" />);
+		if (true) result.push(<DemoBanner key="demoBanner" />)
 
-    return result;
-  }, []);
+		return result
+	}, [])
 
-  if (content.length === 0) return null;
+	if (content.length === 0) return null
 
-  return <Box>{content}</Box>;
-};
+	return <Box>{content}</Box>
+}

@@ -1,25 +1,25 @@
-import { Box } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Box } from '@mui/material'
+import { Outlet } from 'react-router-dom'
 
-import { BannerProvider } from "App";
-import { Footer, Drawer, Toolbar } from "design/templates";
+import { BannerProvider } from 'App'
+import { Footer, Drawer, Toolbar } from 'design/templates'
 
-import style from "./Layout.styles";
+import style from './Layout.styles'
 
 export const Layout = () => {
-  return (
-    <>
-      <BannerProvider />
+    return (
+        <>
+            <BannerProvider />
 
-      <Toolbar />
+            <Toolbar />
 
-      <Box component="main" sx={style.main}>
-        <Drawer side="left" />
-        {<Outlet />}
-        <Drawer side="right" />
-      </Box>
+            <Box component="main" sx={style.main}>
+                <Drawer side="left" />
+                {<Outlet />}
+                <Drawer side="right" />
+            </Box>
 
-      <Footer />
-    </>
-  );
-};
+            <Footer />
+        </>
+	)
+}
