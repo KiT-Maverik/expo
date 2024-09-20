@@ -1,6 +1,8 @@
-import useMediaQuery from '@mui/material/useMediaQuery'
-import { useTheme } from '@mui/material'
+import { useMediaQuery, useTheme } from '@mui/material'
 
+/**
+ * Custom hook to determine the current layout mode.
+ */
 export const useLayout = (strict = false) => {
 	const theme = useTheme()
 
