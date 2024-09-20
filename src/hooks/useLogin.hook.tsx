@@ -1,5 +1,5 @@
 import { localStorageKey } from 'App'
 
-export const useLogout = () => {
+export const useLogin = () => {
 	localStorage.removeItem(localStorageKey.token)
 }
