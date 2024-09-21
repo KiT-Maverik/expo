@@ -42,20 +42,19 @@ export const Toolbar = () => {
 	}, [showLeftDrawer, showRightDrawer])
 
 	return (
-		<Box component="header">
-			<AppBar sx={style.appBar}>
-				<ButtonBase
-					onClick={() => (showLeftDrawer ? dispatch(closeLeftDrawer()) : dispatch(openLeftDrawer()))}
-					sx={style.menuButton}
-				>
-					<MenuIcon />
-					<Typography variant="h6" component="div" flexGrow={1}>
-						{projectName}
-					</Typography>
-				</ButtonBase>
-				<Mui_Toolbar sx={style.toolbar.container}>{items}</Mui_Toolbar>
-				{showLoader && <LinearProgress sx={style.toolbar.loader} />}
-			</AppBar>
-		</Box>
+		<AppBar sx={style.appBar.container}>
+			<ButtonBase
+				onClick={() => (showLeftDrawer ? dispatch(closeLeftDrawer()) : dispatch(openLeftDrawer()))}
+				sx={style.appBar.menu}
+			>
+				<MenuIcon />
+				<Typography variant="h6" component="div" flexGrow={1}>
+					{projectName}
+				</Typography>
+			</ButtonBase>
+			<Mui_Toolbar sx={style.toolbar.container}>{items}</Mui_Toolbar>
+			<Box sx={style.appBar.spaceReserve} />
+			{showLoader && <LinearProgress sx={style.toolbar.loader} />}
+		</AppBar>
 	)
 }
